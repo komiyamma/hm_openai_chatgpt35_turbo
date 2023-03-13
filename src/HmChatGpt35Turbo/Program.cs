@@ -127,15 +127,16 @@ namespace HmChatGpt35Turbo
 
             try
             {
-                if (String.IsNullOrEmpty(tb.Text))
+                var trim = tb.Text.TrimEnd();
+                if (String.IsNullOrEmpty(trim))
                 {
                     return;
                 }
 
                 if (sw != null)
                 {
-                    sw.WriteLine(tb.Text);
-                    Hm.OutputPane.Output(tb.Text + NewLine);
+                    sw.WriteLine(trim);
+                    Hm.OutputPane.Output(trim + NewLine);
                     tb.Text = "";
                 }
             }
