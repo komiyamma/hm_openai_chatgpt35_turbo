@@ -40,42 +40,43 @@ namespace HmChatGpt35Turbo
 
         private void AppForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (proc != null)
+            if (proc == null)
             {
+                return;
+            }
 
-                try
+            try
+            {
+                if (sw != null)
                 {
-                    if (sw != null)
-                    {
-                        sw.WriteLine("チャットを終了");
-                    }
-
-                    if (sw != null)
-                    {
-                        if (proc != null)
-                        {
-                            sw.Dispose();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // ここは必ず例外でるので不要。
+                    sw.WriteLine("チャットを終了");
                 }
 
-                try
+                if (sw != null)
                 {
                     if (proc != null)
                     {
-                        proc.Close();
-                        proc.Kill();
+                        sw.Dispose();
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                // ここは必ず例外でるので不要。
+            }
 
-                }
-                catch (Exception ex)
+            try
+            {
+                if (proc != null)
                 {
-                    // ここは必ず例外でるので不要。
+                    proc.Close();
+                    proc.Kill();
                 }
+
+            }
+            catch (Exception ex)
+            {
+                // ここは必ず例外でるので不要。
             }
         }
 
@@ -109,11 +110,12 @@ namespace HmChatGpt35Turbo
         void SetButton()
         {
             btn = new Button();
-            btn.Text = "送信";
+            btn.Text = "送信 (Ctrl+↵)";
             btn.UseVisualStyleBackColor = true;
             this.Controls.Add(btn);
             btn.Top = 2;
             btn.Left = 2;
+            btn.Width = 90;
             btn.Height = 20;
 
             btn.Click += Btn_Click;
@@ -121,9 +123,10 @@ namespace HmChatGpt35Turbo
 
         private void Btn_Click(object sender, EventArgs e)
         {
+            if (proc == null) { return; }
+
             try
             {
-                if (proc == null) { return; }
                 if (String.IsNullOrEmpty(tb.Text))
                 {
                     return;

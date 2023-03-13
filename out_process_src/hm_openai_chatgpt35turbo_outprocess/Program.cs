@@ -120,7 +120,7 @@ namespace HmOpenAIChatGpt35Turbo
             {
                 Messages = list,
                 Model = Models.ChatGpt3_5Turbo,
-                MaxTokens = 1000
+                MaxTokens = 2000
             };
 
             var completionResult = openAiService.ChatCompletion.CreateCompletionAsStream(options);
