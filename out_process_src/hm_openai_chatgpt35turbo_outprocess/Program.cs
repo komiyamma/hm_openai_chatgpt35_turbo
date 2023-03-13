@@ -20,8 +20,10 @@ namespace HmOpenAIChatGpt35Turbo
 
     class Program
     {
+        const string NewLine = "\n";
+
         const string OpenAIEnvironmentVariableName = "OPENAI_KEY";
-        const string ErrorMessageNoOpenAIKey = "キーが環境変数にありません。:\n";
+        const string ErrorMessageNoOpenAIKey = "キーが環境変数にありません。:" + NewLine;
 
         // OpenAIのキーの取得
         static string? GetOpenAIKey()
@@ -35,8 +37,8 @@ namespace HmOpenAIChatGpt35Turbo
         }
 
 
-        const string QuestionPromptMessages = "-- 質問をどうぞ --\n";
-        const string NoQuestionMessage = "質問内容が無い\n";
+        const string QuestionPromptMessages = "-- 質問をどうぞ --"+ NewLine + NewLine;
+        const string NoQuestionMessage = "質問内容が無い" + NewLine;
 
         const string ChatEndMessage = "チャットを終了";
         // 質問内容の取得
@@ -60,7 +62,7 @@ namespace HmOpenAIChatGpt35Turbo
             return question;
         }
 
-        const string ErrorMessageNoOpenAIService = "OpenAIのサービスに接続できません。:\n";
+        const string ErrorMessageNoOpenAIService = "OpenAIのサービスに接続できません。:" + NewLine;
         // OpenAIサービスのインスタンス。一応保持
         static OpenAIService? openAiService = null;
 
@@ -125,8 +127,8 @@ namespace HmOpenAIChatGpt35Turbo
             return completionResult;
         }
 
-        const string AssistanceAnswerCompleteMsg = "\n\n-- 完了 --\n\n";
-        const string ErrorMsgUnknown = "Unknown Error:\n";
+        const string AssistanceAnswerCompleteMsg = NewLine + NewLine + "-- 完了 --" + NewLine + NewLine;
+        const string ErrorMsgUnknown = "Unknown Error:" + NewLine;
         // チャットの反復
         static async Task RepeatChat()
         {
@@ -147,7 +149,11 @@ namespace HmOpenAIChatGpt35Turbo
                     if (completion.Successful)
                     {
                         string? str = completion.Choices.FirstOrDefault()?.Message.Content;
-                        answer_sum += str ?? "";
+                        if (str != null)
+                        {
+                            str = str.Replace("\n", NewLine);
+                            answer_sum += str ?? "";
+                        }
                         Console.Write(str);
                     }
                     else

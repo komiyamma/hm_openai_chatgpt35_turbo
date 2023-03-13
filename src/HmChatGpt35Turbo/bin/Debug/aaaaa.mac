@@ -1,0 +1,4 @@
+﻿#HMNET = loaddll( hidemarudir + @"\hm.NET.dll" );
+ 
+#r = dllfuncw( #HMNET, "SetDetachMethod", currentmacrodirectory + @"\HmChatGpt35Turbo.dll", "HmChatGpt35Turbo.HmChatGpt35Turbo", "OnDetachMethod" );
+#r = dllfuncw( #HMNET, "CallMethod", currentmacrodirectory + @"\HmChatGpt35Turbo.dll", "HmChatGpt35Turbo.HmChatGpt35Turbo", "CreateForm" );
