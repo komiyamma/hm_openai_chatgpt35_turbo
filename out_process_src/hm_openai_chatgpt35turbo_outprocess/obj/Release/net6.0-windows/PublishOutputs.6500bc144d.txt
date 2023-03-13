@@ -1,0 +1,15 @@
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\hm_openai_chatgpt35turbo_outprocess.exe
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\hm_openai_chatgpt35turbo_outprocess.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\hm_openai_chatgpt35turbo_outprocess.deps.json
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\hm_openai_chatgpt35turbo_outprocess.runtimeconfig.json
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\OpenAI.GPT3.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Configuration.Abstractions.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Configuration.Binder.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\Microsoft.Extensions.DependencyInjection.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Http.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Logging.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Logging.Abstractions.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Options.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Primitives.dll

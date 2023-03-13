@@ -1,0 +1,37 @@
+﻿"obj\Release\net7.0\win-x64\native\OpenAI_ChatGpt3.5turbo_Async.obj"
+/OUT:"bin\Release\net7.0\win-x64\native\OpenAI_ChatGpt3.5turbo_Async.exe"
+/LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\lib\x64"
+/LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\lib\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\lib\um\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\ucrt\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\\lib\10.0.22621.0\\um\x64"
+"obj\Release\net7.0\win-x64\native\OpenAI_ChatGpt3.5turbo_Async.res"
+"C:\Users\master\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\7.0.3\sdk\bootstrapper.lib"
+"C:\Users\master\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\7.0.3\sdk\Runtime.WorkstationGC.lib"
+"C:\Users\master\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\7.0.3\sdk\System.Globalization.Native.Aot.lib"
+"C:\Users\master\.nuget\packages\runtime.win-x64.microsoft.dotnet.ilcompiler\7.0.3\sdk\System.IO.Compression.Native.Aot.lib"
+"advapi32.lib"
+"bcrypt.lib"
+"crypt32.lib"
+"iphlpapi.lib"
+"kernel32.lib"
+"mswsock.lib"
+"ncrypt.lib"
+"normaliz.lib"
+"ntdll.lib"
+"ole32.lib"
+"oleaut32.lib"
+"secur32.lib"
+"user32.lib"
+"version.lib"
+"ws2_32.lib"
+/NOLOGO /MANIFEST:NO
+/DEBUG
+/INCREMENTAL:NO
+/SUBSYSTEM:CONSOLE
+/ENTRY:wmainCRTStartup
+/NATVIS:"C:\Program Files\dotnet\sdk\7.0.201\Sdks\Microsoft.DotNet.ILCompiler\build\NativeAOT.natvis"
+/NODEFAULTLIB:libucrt.lib
+/DEFAULTLIB:ucrt.lib
+/OPT:REF
+/OPT:ICF

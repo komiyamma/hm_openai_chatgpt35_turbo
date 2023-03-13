@@ -1,0 +1,1 @@
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net6.0\ANYCPU\publish\ANYCPU\OpenAI_ChatGpt3.5turbo_Async.exe

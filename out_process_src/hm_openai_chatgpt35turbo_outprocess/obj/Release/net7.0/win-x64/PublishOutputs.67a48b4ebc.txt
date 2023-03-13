@@ -1,0 +1,2 @@
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\win-x64\publish\win-x64\OpenAI_ChatGpt3.5turbo_Async.pdb
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\win-x64\publish\win-x64\OpenAI_ChatGpt3.5turbo_Async.exe

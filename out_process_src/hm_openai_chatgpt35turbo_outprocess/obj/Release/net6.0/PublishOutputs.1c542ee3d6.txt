@@ -1,0 +1,16 @@
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\OpenAI_ChatGpt3.5turbo_Async.exe
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\OpenAI_ChatGpt3.5turbo_Async.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\OpenAI_ChatGpt3.5turbo_Async.deps.json
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\OpenAI_ChatGpt3.5turbo_Async.runtimeconfig.json
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\OpenAI_ChatGpt3.5turbo_Async.pdb
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\OpenAI.GPT3.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\Microsoft.Extensions.Configuration.Abstractions.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\Microsoft.Extensions.Configuration.Binder.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\Microsoft.Extensions.DependencyInjection.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\Microsoft.Extensions.Http.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\Microsoft.Extensions.Logging.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\Microsoft.Extensions.Logging.Abstractions.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\Microsoft.Extensions.Options.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+G:\repogitory\gen_openai_chatgpt35_turbo_sample\src\OpenAI_ChatGpt3.5turbo_Async\bin\Release\net7.0\ANYCPU\publish\ANYCPU\Microsoft.Extensions.Primitives.dll

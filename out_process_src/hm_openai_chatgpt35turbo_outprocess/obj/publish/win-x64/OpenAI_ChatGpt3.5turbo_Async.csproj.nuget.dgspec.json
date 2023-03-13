@@ -1,0 +1,94 @@
+{
+  "format": 1,
+  "restore": {
+    "G:\\repogitory\\gen_openai_chatgpt35_turbo_sample\\src\\OpenAI_ChatGpt3.5turbo_Async\\OpenAI_ChatGpt3.5turbo_Async.csproj": {}
+  },
+  "projects": {
+    "G:\\repogitory\\gen_openai_chatgpt35_turbo_sample\\src\\OpenAI_ChatGpt3.5turbo_Async\\OpenAI_ChatGpt3.5turbo_Async.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\repogitory\\gen_openai_chatgpt35_turbo_sample\\src\\OpenAI_ChatGpt3.5turbo_Async\\OpenAI_ChatGpt3.5turbo_Async.csproj",
+        "projectName": "OpenAI_ChatGpt3.5turbo_Async",
+        "projectPath": "G:\\repogitory\\gen_openai_chatgpt35_turbo_sample\\src\\OpenAI_ChatGpt3.5turbo_Async\\OpenAI_ChatGpt3.5turbo_Async.csproj",
+        "packagesPath": "C:\\Users\\master\\.nuget\\packages\\",
+        "outputPath": "G:\\repogitory\\gen_openai_chatgpt35_turbo_sample\\src\\OpenAI_ChatGpt3.5turbo_Async\\obj\\publish\\win-x64\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\master\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Betalgo.OpenAI.GPT3": {
+              "target": "Package",
+              "version": "[6.7.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[7.0.3, 7.0.3]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[7.0.3, 7.0.3]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[7.0.3, 7.0.3]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
