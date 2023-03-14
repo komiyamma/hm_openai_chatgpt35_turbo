@@ -1,0 +1,11 @@
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\bin\Release\HmChatGpt35Turbo.dll.config
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\bin\Release\HmChatGpt35Turbo.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\bin\Release\HmChatGpt35Turbo.pdb
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\bin\Release\hm.NET.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\obj\Release\HmChatGpt35Turbo.csproj.AssemblyReference.cache
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\obj\Release\HmChatGpt35Turbo.AppForm.resources
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\obj\Release\HmChatGpt35Turbo.csproj.GenerateResource.cache
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\obj\Release\HmChatGpt35Turbo.csproj.CoreCompileInputs.cache
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\obj\Release\HmChatGpt35Turbo.csproj.CopyComplete
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\obj\Release\HmChatGpt35Turbo.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGpt35Turbo\obj\Release\HmChatGpt35Turbo.pdb

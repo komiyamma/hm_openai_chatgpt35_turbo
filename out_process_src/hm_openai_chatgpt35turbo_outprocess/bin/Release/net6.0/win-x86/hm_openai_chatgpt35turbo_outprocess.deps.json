@@ -9,7 +9,7 @@
     ".NETCoreApp,Version=v6.0/win-x86": {
       "hm_openai_chatgpt35turbo_outprocess/1.0.0": {
         "dependencies": {
-          "Betalgo.OpenAI.GPT3": "6.7.2",
+          "Betalgo.OpenAI.GPT3": "6.7.3",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x86": "6.0.14"
         },
         "runtime": {
@@ -856,15 +856,15 @@
           }
         }
       },
-      "Betalgo.OpenAI.GPT3/6.7.2": {
+      "Betalgo.OpenAI.GPT3/6.7.3": {
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/OpenAI.GPT3.dll": {
-            "assemblyVersion": "6.7.2.0",
-            "fileVersion": "6.7.2.0"
+            "assemblyVersion": "6.7.3.0",
+            "fileVersion": "6.7.3.0"
           }
         }
       },
@@ -1004,12 +1004,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Betalgo.OpenAI.GPT3/6.7.2": {
+    "Betalgo.OpenAI.GPT3/6.7.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oH2oeaYvKxY5Z8dOqjqnM5+oyHVi6O9TmH+FSLQp5vKpbK2f8AcoyEAG2cVEhfVTRZENuW9pW1hP56Wwbe279A==",
-      "path": "betalgo.openai.gpt3/6.7.2",
-      "hashPath": "betalgo.openai.gpt3.6.7.2.nupkg.sha512"
+      "sha512": "sha512-f5jMAoCji1QV2fvjclK8t3DhvulgUL1IU233rudfpWeqC9w8LZg+SayQRIXglQdvkHsX4q/V74hQzbdLdm8ihw==",
+      "path": "betalgo.openai.gpt3/6.7.3",
+      "hashPath": "betalgo.openai.gpt3.6.7.3.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
       "type": "package",

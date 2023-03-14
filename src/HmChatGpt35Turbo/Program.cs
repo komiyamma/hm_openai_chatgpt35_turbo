@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hidemaru;
 
@@ -50,6 +47,7 @@ namespace HmChatGpt35Turbo
                 if (sw != null)
                 {
                     sw.WriteLine("チャットを終了");
+                    proc.WaitForExit(300);
                 }
 
                 if (sw != null)
@@ -83,12 +81,15 @@ namespace HmChatGpt35Turbo
         private TextBox tb;
         void SetTextEdit()
         {
-            tb = new TextBox();
-            tb.Multiline = true;
-            tb.Width = this.Width;
-            tb.Top = 24;
-            tb.Height = 150;
-            tb.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom;
+            tb = new TextBox()
+            {
+                Multiline = true,
+                Width = this.Width,
+                Top = 24,
+                Height = 150,
+                Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom
+            };
+
             tb.KeyDown += Tb_KeyDown;
             this.Controls.Add(tb);
         }
@@ -109,16 +110,19 @@ namespace HmChatGpt35Turbo
         private Button btn;
         void SetButton()
         {
-            btn = new Button();
-            btn.Text = "送信 (Ctrl+↵)";
-            btn.UseVisualStyleBackColor = true;
-            this.Controls.Add(btn);
-            btn.Top = 2;
-            btn.Left = 2;
-            btn.Width = 90;
-            btn.Height = 20;
+            btn = new Button()
+            {
+                Text = "送信 (Ctrl+↵)",
+                UseVisualStyleBackColor = true,
+                Top = 2,
+                Left = 2,
+                Width = 90,
+                Height = 20
+            };
 
             btn.Click += Btn_Click;
+            this.Controls.Add(btn);
+
         }
 
         private void Btn_Click(object sender, EventArgs e)
@@ -153,17 +157,19 @@ namespace HmChatGpt35Turbo
             try
             {
                 proc = new Process();
-                var info = new ProcessStartInfo();
+
                 var dllpath = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 var dirpath = System.IO.Path.GetDirectoryName(dllpath);
-                info.FileName = Path.Combine(dirpath, "hm_openai_chatgpt35turbo_outprocess.exe");
-                info.RedirectStandardOutput = true;
-                info.RedirectStandardInput = true;
-                info.RedirectStandardError = true;
-                info.CreateNoWindow = true;
-                info.UseShellExecute = false;
+                var info = new ProcessStartInfo()
+                {
+                    FileName = Path.Combine(dirpath, "hm_openai_chatgpt35turbo_outprocess.exe"),
+                    RedirectStandardOutput = true,
+                    RedirectStandardInput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                };
                 proc.StartInfo = info;
-
                 proc.OutputDataReceived += Process_OutputDataReceived;
 
                 proc.Start();

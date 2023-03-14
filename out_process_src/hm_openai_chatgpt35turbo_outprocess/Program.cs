@@ -168,7 +168,7 @@ namespace HmOpenAIChatGpt35Turbo
                     }
                 }
 
-                messageList.Add(ChatMessage.FromAssistance(answer_sum));
+                messageList.Add(ChatMessage.FromAssistant(answer_sum));
                 Console.WriteLine(AssistanceAnswerCompleteMsg);
             }
 
