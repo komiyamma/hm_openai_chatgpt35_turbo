@@ -185,8 +185,9 @@ namespace HmOpenAIChatGpt35Turbo
                 }
 
             }
-            catch (OperationCanceledException)
+            catch (OperationCanceledException ex)
             {
+                Hm.OutputPane.Output(ex.Message + NewLine);
                 // キャンセルトークン経由なら正規の中断だろうからなにもしない
             }
             catch (Exception ex)

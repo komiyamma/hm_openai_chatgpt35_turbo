@@ -137,7 +137,6 @@ namespace HmOpenAIChatGpt35Turbo
                 if (ct.IsCancellationRequested)
                 {
                     await completionResult.GetAsyncEnumerator().DisposeAsync();
-                    Hm.OutputPane.Output(AssistanceAnswerCancelMsg);
                     throw new OperationCanceledException(AssistanceAnswerCancelMsg);
                 }
 
@@ -161,12 +160,12 @@ namespace HmOpenAIChatGpt35Turbo
                         throw new Exception(ErrorMsgUnknown);
                     }
 
-                    Hm.OutputPane.Output($"{completion.Error.Code}: {completion.Error.Message}" + "\r\n");
+                    Hm.OutputPane.Output($"{completion.Error.Code}: {completion.Error.Message}" + NewLine);
                 }
             }
 
             messageList.Add(ChatMessage.FromAssistant(answer_sum));
-            Hm.OutputPane.Output(AssistanceAnswerCompleteMsg + "\r\n");
+            Hm.OutputPane.Output(AssistanceAnswerCompleteMsg + NewLine);
         }
 
         public OpenAIChatMain(string key="")
