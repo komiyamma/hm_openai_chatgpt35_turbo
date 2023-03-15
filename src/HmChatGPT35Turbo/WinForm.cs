@@ -13,10 +13,13 @@ namespace HmOpenAIChatGpt35Turbo
         const string NewLine = "\r\n";
 
         IOutputWriter output;
+        IInputReader input;
 
-        public AppForm(string key, IOutputWriter output)
+        public AppForm(string key, IOutputWriter output, IInputReader input)
         {
             this.output = output;
+            this.input = input;
+
             try
             {
                 SetForm();
@@ -77,7 +80,7 @@ namespace HmOpenAIChatGpt35Turbo
         {
             if (tb != null)
             {
-                string? selectedText = Hm.Edit.SelectedText;
+                string? selectedText = input.ReadText();
                 if (String.IsNullOrEmpty(selectedText))
                 {
                     // tb.Text = string.Empty;

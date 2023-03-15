@@ -9,6 +9,7 @@ namespace HmOpenAIChatGpt35Turbo
     {
         private static AppForm? form;
         private static HmOutputWriter? output;
+        private static HmInputReader? input;
 
         public int CreateForm(string key = "")
         {
@@ -20,7 +21,8 @@ namespace HmOpenAIChatGpt35Turbo
             if (form == null || !form.Visible)
             {
                 output = new HmOutputWriter();
-                form = new AppForm(key, output);
+                input = new HmInputReader();
+                form = new AppForm(key, output, input);
             }
 
             form.Show();
