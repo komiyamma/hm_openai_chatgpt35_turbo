@@ -40,12 +40,12 @@ CHECK_OPENAI_USED_HIDEMARUHANDLE:
 
         #OpeningFormHidemaruHandle = member(#CHECK_OBJ, "GetOpenAIFormUsedHideamruHandle");
 
-        // 使っているウィンドウハンドルがある
+        // HmOpenAIGPT35Turboを使っている有効な秀丸ハンドルがある
         if (#OpeningFormHidemaruHandle > 0 ) {
 
-            // 一旦対象のウィンドウをアクティブにして...
             #CurrentHidemaruHandle = hidemaruhandle(0);
 
+            // 一旦対象のウィンドウをアクティブにして...
             if (#CurrentHidemaruHandle != #OpeningFormHidemaruHandle) {
                 setactivehidemaru #OpeningFormHidemaruHandle;
             }
