@@ -68,6 +68,17 @@ namespace HmOpenAIChatGpt35Turbo
             tb.KeyDown += Tb_KeyDown;
             this.Controls.Add(tb);
 
+            string? selectedText = Hm.Edit.SelectedText;
+            if (String.IsNullOrEmpty(selectedText))
+            {
+                tb.Text = string.Empty;
+            }
+            else
+            {
+                tb.Text = selectedText;
+                tb.Select(tb.Text.Length, 0); // カーソルの位置を末尾に配置しておく。
+            }
+
             tb.Focus();
         }
 
@@ -174,7 +185,7 @@ namespace HmOpenAIChatGpt35Turbo
                 }
 
             }
-            catch(OperationCanceledException)
+            catch (OperationCanceledException)
             {
                 // キャンセルトークン経由なら正規の中断だろうからなにもしない
             }
