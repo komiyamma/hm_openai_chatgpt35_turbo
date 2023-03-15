@@ -8,6 +8,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <PlatformTarget>x86</PlatformTarget>
     <BaseOutputPath>bin\$(PlatformTarget)</BaseOutputPath>
+    <Authors>Akitsugu Komiyama</Authors>
+    <Copyright>$(Authors)</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Platform)'=='x86'">

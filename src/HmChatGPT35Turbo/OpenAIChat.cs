@@ -20,9 +20,10 @@ namespace HmOpenAIChatGpt35Turbo
 
     class OpenAIChatMain
     {
-        const string NewLine = "\r\n";
 
         IOutputWriter output;
+
+        const string NewLine = "\r\n";
 
         const string OpenAIKeyEnvironmentVariableName = "OPENAI_KEY";
         static string? OpenAIKeyOverWriteVariable = null; // 直接APIの値を上書き指定している場合(マクロなどからの直接の引き渡し)

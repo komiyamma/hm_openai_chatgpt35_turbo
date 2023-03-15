@@ -12,6 +12,11 @@ namespace HmOpenAIChatGpt35Turbo
 
         public int CreateForm(string key = "")
         {
+            if (form != null)
+            {
+                form.UpdateTextBox();
+            }
+
             if (form == null || !form.Visible)
             {
                 output = new HmOutputWriter();

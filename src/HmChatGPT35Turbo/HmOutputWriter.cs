@@ -9,7 +9,7 @@ namespace HmOpenAIChatGpt35Turbo
 {
     internal class HmOutputWriter : IOutputWriter
     {
-        const string NewLine = "\r\n";
+        public const string NewLine = "\r\n";
 
         public HmOutputWriter() { }
 
