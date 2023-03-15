@@ -1,39 +1,56 @@
-﻿/***
- HmOpenAIChatGPT35Turbo v1.0.0
+﻿/*--------------------------------------------
+ * HmOpenAIChatGPT35Turbo v1.0.0
+ * 
+ * Copyright (C) 2021-2022 Akitsugu Komiyama
+ * under the MIT License
+ * 
+ * (※秀丸エディタ v8.98以上)
+ --------------------------------------------*/
 
- Copyright (C) 2021-2022 Akitsugu Komiyama
- under the MIT License
+// OPENAIのAPIのKEYの設定 
+SET_OPENAI_KEY:
+    $OPENAI_KEY = getenv("OPENAI_KEY");
+    if ($OPENAI_KEY == "") {
+        $OPENAI_KEY = ""; // 直接ここでAPIを指定しても良い。但し推奨はしません。直書きする場合、このマクロを迂闊に配布して他者にAPIのキーが漏れないよう注意。
+    }
 
- (※秀丸エディタ v8.98以上)
-*/
-$OPENAI_KEY = getenv("OPENAI_KEY");
-if ($OPENAI_KEY == "") {
-    $OPENAI_KEY = ""; // 直接ここでAPIを指定しても良い。但し推奨はしません。直書きする場合、このマクロを迂闊に配布して他者にAPIのキーが漏れないよう注意。
-}
+// 選択テキストの保持 ($HmSelectedTextという変数名を変更しないこと)
+SAVE_SELECTED_TEXT:
+    if (selecting) {
+        $HmSelectedText = gettext2( seltopcolumn, seltoplineno, selendcolumn, selendlineno );
+    }
 
-$HmSelectedText = gettext2( seltopcolumn, seltoplineno, selendcolumn, selendlineno );
 
-#obj = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
+call SHOW_OPENAI_FORM;
 
-// 秀丸の該当プロセスが終了するまでオブジェクトは維持
-keepobject #obj, 1;
 
-// 秀丸プロセスが閉じる際に(エラーで閉じる際も含めて)、このメソッドを実行する
-setcomdetachmethod #obj, "DestroyForm";
+// 他の秀丸プロセスがすでにCHATGPTを開いている
+CHECK_OTHER_HIDEMARU_USED_CHATGPT:
+    if (#FormUsedHidemaruHandle > 0) {
+        // 現在の秀丸プロセスを記憶
+        #CurrentHidemaruHandle = hidemaruhandle(0);
+        // ChatGPTを開いている秀丸プロセスに切り替え
+        setactivehidemaru #FormUsedHidemaruHandle;
 
-// フォームの表示。
-#OpenedHidemaruHandle = member(#obj, "CreateForm", $OPENAI_KEY);
-if (#OpenedHidemaruHandle > 0) {
-    #CurrentHidemaruHandle = hidemaruhandle(0);
-    setactivehidemaru #OpenedHidemaruHandle;
-	#obj = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
+        call SHOW_OPENAI_FORM;
 
-	// 秀丸の該当プロセスが終了するまでオブジェクトは維持
-	keepobject #obj, 1;
+        // 記憶しておいた秀丸プロセスに戻す
+        setactivehidemaru #CurrentHidemaruHandle;
+    }
+    endmacro;
 
-	// 秀丸プロセスが閉じる際に(エラーで閉じる際も含めて)、このメソッドを実行する
-	setcomdetachmethod #obj, "DestroyForm";
 
-	// フォームの表示。
-	#OpenedHidemaruHandle = member(#obj, "CreateForm", $OPENAI_KEY);
-}
+SHOW_OPENAI_FORM:
+
+    #CHATGPT_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
+
+    // 秀丸の該当プロセスが終了するまでオブジェクトは維持
+    keepobject #CHATGPT_OBJ, 1;
+
+    // 秀丸プロセスが閉じる際に(エラーで閉じる際も含めて)、このメソッドを実行する
+    setcomdetachmethod #CHATGPT_OBJ, "DestroyForm";
+
+    // フォームの表示。
+    #FormUsedHidemaruHandle = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY);
+
+    return;
