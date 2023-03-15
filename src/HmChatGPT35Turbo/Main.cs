@@ -48,27 +48,13 @@ namespace HmOpenAIChatGpt35Turbo
         const string QuestionPromptMessages = "-- 質問をどうぞ --" + NewLine + NewLine;
         const string NoQuestionMessage = "質問内容が無い" + NewLine;
 
+        public string GetQuestionMessageEmpty()
+        {
+            return NoQuestionMessage;
+        }
+
         const string ChatEndMessage = "チャットを終了";
         // 質問内容の取得
-        static string? GetQuestion()
-        {
-            string? question = "";
-
-            Console.Write(QuestionPromptMessages);
-            question = Console.ReadLine();
-
-            if (String.IsNullOrEmpty(question))
-            {
-                return null;
-            }
-
-            if (question.ToUpper() == ChatEndMessage)
-            {
-                return null;
-            }
-
-            return question;
-        }
 
         const string ErrorMessageNoOpenAIService = "OpenAIのサービスに接続できません。:" + NewLine;
         // OpenAIサービスのインスタンス。一応保持
