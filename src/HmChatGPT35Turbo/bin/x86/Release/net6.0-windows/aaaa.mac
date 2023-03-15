@@ -1,0 +1,11 @@
+﻿#obj = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
+
+// 秀丸の該当プロセスが終了するまでオブジェクトは維持
+keepobject #obj, 1;
+
+// 秀丸プロセスが閉じる際に(エラーで閉じる際も含めて)、このメソッドを実行する
+setcomdetachmethod #obj, "DestroyForm";
+
+$str_add = member(#obj, "CreateForm", "a");
+
+

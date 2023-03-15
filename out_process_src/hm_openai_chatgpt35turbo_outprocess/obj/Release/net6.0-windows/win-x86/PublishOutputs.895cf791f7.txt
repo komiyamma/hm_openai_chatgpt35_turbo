@@ -1,1 +1,0 @@
-G:\repogitory\hm_openai_chatgpt35_turbo\out_process_src\hm_openai_chatgpt35turbo_outprocess\bin\Release\net6.0-windows\win-x86\publish\win-x86\hm_openai_chatgpt35turbo_outprocess.exe
