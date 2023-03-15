@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "H4NKcNFoJnWfJoxBsLyanOvSDbZ3L2qT1JKp5P44uFQ0ewHmMyzasTYw4xopyRpeW6jJq1YecRZFCx20JIHVwg==",
+  "dgSpecHash": "z8AulC3/DqIIS6jk3jMbtyO/20hAQUkPXGMoxpqHqC71zqkyhp9VD5s0iQesF8C90WAQGgObKrJ2QGTRjj53Mg==",
   "success": true,
   "projectFilePath": "G:\\repogitory\\hm_openai_chatgpt35_turbo\\out_process_src\\hm_openai_chatgpt35turbo_outprocess\\hm_openai_chatgpt35turbo_outprocess.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\master\\.nuget\\packages\\betalgo.openai.gpt3\\6.7.3\\betalgo.openai.gpt3.6.7.3.nupkg.sha512",
+    "C:\\Users\\master\\.nuget\\packages\\betalgo.openai.gpt3\\6.8.0\\betalgo.openai.gpt3.6.8.0.nupkg.sha512",
     "C:\\Users\\master\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\master\\.nuget\\packages\\microsoft.extensions.configuration.binder\\6.0.0\\microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",
     "C:\\Users\\master\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",

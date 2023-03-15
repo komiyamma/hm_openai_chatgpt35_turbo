@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Betalgo.OpenAI.GPT3/6.7.3": {
+      "Betalgo.OpenAI.GPT3/6.8.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
@@ -236,19 +236,21 @@
     }
   },
   "libraries": {
-    "Betalgo.OpenAI.GPT3/6.7.3": {
-      "sha512": "f5jMAoCji1QV2fvjclK8t3DhvulgUL1IU233rudfpWeqC9w8LZg+SayQRIXglQdvkHsX4q/V74hQzbdLdm8ihw==",
+    "Betalgo.OpenAI.GPT3/6.8.0": {
+      "sha512": "7owhAciVqFFIDl/Ylxlv6NaCezCIz4WawedkJ4UKf8g2qE+W+i86MVo1PFcTS+7JOO6NkCPlpd8wCB1bXixnzg==",
       "type": "package",
-      "path": "betalgo.openai.gpt3/6.7.3",
+      "path": "betalgo.openai.gpt3/6.8.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "OpenAI-Betalgo.png",
         "Readme.md",
-        "betalgo.openai.gpt3.6.7.3.nupkg.sha512",
+        "betalgo.openai.gpt3.6.8.0.nupkg.sha512",
         "betalgo.openai.gpt3.nuspec",
         "lib/net6.0/OpenAI.GPT3.dll",
-        "lib/net6.0/OpenAI.GPT3.xml"
+        "lib/net6.0/OpenAI.GPT3.xml",
+        "lib/netstandard2.0/OpenAI.GPT3.dll",
+        "lib/netstandard2.0/OpenAI.GPT3.xml"
       ]
     },
     "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
@@ -549,7 +551,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Betalgo.OpenAI.GPT3 >= 6.7.3"
+      "Betalgo.OpenAI.GPT3 >= 6.8.0"
     ]
   },
   "packageFolders": {
@@ -601,7 +603,7 @@
         "dependencies": {
           "Betalgo.OpenAI.GPT3": {
             "target": "Package",
-            "version": "[6.7.3, )"
+            "version": "[6.8.0, )"
           }
         },
         "imports": [
