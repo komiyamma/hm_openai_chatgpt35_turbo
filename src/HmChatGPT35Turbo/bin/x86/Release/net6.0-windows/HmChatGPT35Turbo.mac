@@ -9,13 +9,16 @@
 
 // OPENAIのAPIのKEYの設定 
 SET_OPENAI_KEY:
+
     $OPENAI_KEY = getenv("OPENAI_KEY");
+
     if ($OPENAI_KEY == "") {
         $OPENAI_KEY = ""; // 直接ここでAPIを指定しても良い。但し推奨はしません。直書きする場合、このマクロを迂闊に配布して他者にAPIのキーが漏れないよう注意。
     }
 
 // 選択テキストの保持 ($HmSelectedTextという変数名を変更しないこと)
 SAVE_SELECTED_TEXT:
+
     if (selecting) {
         $HmSelectedText = gettext2( seltopcolumn, seltoplineno, selendcolumn, selendlineno, 1 );
     }
@@ -32,6 +35,7 @@ CHECK_OPENAI_USED_HIDEMARUHANDLE:
 
     // HmOpenAIGPT35Turbo のウィンドウが既にあって、かつ、テキスト選択がある
     } else if (selecting) {
+
         #CHECK_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
 
         #OpeningFormHidemaruHandle = member(#CHECK_OBJ, "GetOpenAIFormUsedHideamruHandle");
@@ -53,6 +57,12 @@ CHECK_OPENAI_USED_HIDEMARUHANDLE:
             if (#CurrentHidemaruHandle != #OpeningFormHidemaruHandle) {
                 setactivehidemaru #CurrentHidemaruHandle;
             }
+
+        } else {
+
+            // 普段通りの処理を実行
+            call SHOW_OPENAI_FORM;
+
         }
     }
     endmacro;
@@ -69,6 +79,6 @@ SHOW_OPENAI_FORM:
     setcomdetachmethod #CHATGPT_OBJ, "DestroyForm";
 
     // フォームの表示。
-    #FormUsedHidemaruHandle = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY);
+    #_ = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY);
 
     return;
