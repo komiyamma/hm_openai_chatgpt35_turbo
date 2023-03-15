@@ -1,0 +1,6 @@
+﻿// Guidの部分は変更しているハズなので、その値へと差し替えること
+#obj = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
+ 
+$str_add = member(#obj, "CreateForm");
+ 
+ 
