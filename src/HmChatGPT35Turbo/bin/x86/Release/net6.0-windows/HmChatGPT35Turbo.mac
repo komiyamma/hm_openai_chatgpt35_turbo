@@ -48,7 +48,7 @@ CHECK_OPENAI_USED_HIDEMARUHANDLE:
 
             // 改めて普段通りの処理を実行
             call SHOW_OPENAI_FORM;
-            
+
             // 元のウィンドウに戻す。
             if (#CurrentHidemaruHandle != #OpeningFormHidemaruHandle) {
                 setactivehidemaru #CurrentHidemaruHandle;
