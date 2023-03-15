@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -19,6 +20,9 @@ namespace HmOpenAIChatGpt35Turbo
         {
             this.output = output;
             this.input = input;
+
+            long handle = (long)Hm.WindowHandle;
+            Hm.Macro.StaticVar["HmOpenAIChatGpt35Turbo_HidemaruHandle", 1] = handle.ToString();
 
             try
             {
@@ -44,6 +48,9 @@ namespace HmOpenAIChatGpt35Turbo
 
         private void AppForm_FormClosing(object? sender, FormClosingEventArgs e)
         {
+
+            Hm.Macro.StaticVar["HmOpenAIChatGpt35Turbo_HidemaruHandle", 1] = "-1";
+
             if (ai == null)
             {
                 return;
@@ -68,6 +75,7 @@ namespace HmOpenAIChatGpt35Turbo
                 Width = this.Width,
                 Top = 24,
                 Height = 150,
+                ScrollBars = ScrollBars.Both,
                 Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom
             };
             tb.KeyDown += Tb_KeyDown;
@@ -88,10 +96,10 @@ namespace HmOpenAIChatGpt35Turbo
                 else
                 {
                     tb.Text = selectedText;
-                    tb.Select(tb.Text.Length, 0); // カーソルの位置を末尾に配置しておく。
                 }
 
                 tb.Focus();
+                tb.Select(tb.Text.Length, 0); // カーソルの位置を末尾に配置しておく。
             }
         }
 

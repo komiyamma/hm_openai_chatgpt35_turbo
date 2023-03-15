@@ -11,7 +11,7 @@ namespace HmOpenAIChatGpt35Turbo
     {
         public string ReadText()
         {
-            string? text = Hm.Edit.SelectedText;
+            string? text = (String)Hm.Macro.Var["$HmSelectedText"];
             if (String.IsNullOrEmpty(text))
             {
                 return "";

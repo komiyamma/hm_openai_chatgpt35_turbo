@@ -6,11 +6,12 @@
 
  (※秀丸エディタ v8.98以上)
 */
-
 $OPENAI_KEY = getenv("OPENAI_KEY");
 if ($OPENAI_KEY == "") {
     $OPENAI_KEY = ""; // 直接ここでAPIを指定しても良い。但し推奨はしません。直書きする場合、このマクロを迂闊に配布して他者にAPIのキーが漏れないよう注意。
 }
+
+$HmSelectedText = gettext2( seltopcolumn, seltoplineno, selendcolumn, selendlineno );
 
 #obj = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
 
@@ -21,6 +22,18 @@ keepobject #obj, 1;
 setcomdetachmethod #obj, "DestroyForm";
 
 // フォームの表示。
-$_ = member(#obj, "CreateForm", $OPENAI_KEY);
+#OpenedHidemaruHandle = member(#obj, "CreateForm", $OPENAI_KEY);
+if (#OpenedHidemaruHandle > 0) {
+    #CurrentHidemaruHandle = hidemaruhandle(0);
+    setactivehidemaru #OpenedHidemaruHandle;
+	#obj = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
 
+	// 秀丸の該当プロセスが終了するまでオブジェクトは維持
+	keepobject #obj, 1;
 
+	// 秀丸プロセスが閉じる際に(エラーで閉じる際も含めて)、このメソッドを実行する
+	setcomdetachmethod #obj, "DestroyForm";
+
+	// フォームの表示。
+	#OpenedHidemaruHandle = member(#obj, "CreateForm", $OPENAI_KEY);
+}
