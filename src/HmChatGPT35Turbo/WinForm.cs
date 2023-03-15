@@ -38,6 +38,7 @@ namespace HmOpenAIChatGpt35Turbo
 
         void SetForm()
         {
+            this.Text = "*-- HmChatGPT35Turbo --*";
             this.Width = 500;
             this.Height = 210;
             this.FormClosing += AppForm_FormClosing;

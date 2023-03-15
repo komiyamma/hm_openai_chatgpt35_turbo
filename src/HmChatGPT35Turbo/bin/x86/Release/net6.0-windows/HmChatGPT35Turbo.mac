@@ -17,25 +17,43 @@ SET_OPENAI_KEY:
 // 選択テキストの保持 ($HmSelectedTextという変数名を変更しないこと)
 SAVE_SELECTED_TEXT:
     if (selecting) {
-        $HmSelectedText = gettext2( seltopcolumn, seltoplineno, selendcolumn, selendlineno );
+        $HmSelectedText = gettext2( seltopcolumn, seltoplineno, selendcolumn, selendlineno, 1 );
     }
 
 
-call SHOW_OPENAI_FORM;
+// 他の秀丸プロセスでHmOpenAIGPT35Turboが使われているかどうか
+CHECK_OPENAI_USED_HIDEMARUHANDLE:
 
+    // HmOpenAIGPT35Turbo のウィンドウが無い
+    if (! findwindow("*-- HmChatGPT35Turbo --*")) {
 
-// 他の秀丸プロセスがすでにCHATGPTを開いている
-CHECK_OTHER_HIDEMARU_USED_CHATGPT:
-    if (#FormUsedHidemaruHandle > 0) {
-        // 現在の秀丸プロセスを記憶
-        #CurrentHidemaruHandle = hidemaruhandle(0);
-        // ChatGPTを開いている秀丸プロセスに切り替え
-        setactivehidemaru #FormUsedHidemaruHandle;
-
+        // 普段通りの処理を実行
         call SHOW_OPENAI_FORM;
 
-        // 記憶しておいた秀丸プロセスに戻す
-        setactivehidemaru #CurrentHidemaruHandle;
+    // HmOpenAIGPT35Turbo のウィンドウが既にあって、かつ、テキスト選択がある
+    } else if (selecting) {
+        #CHECK_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
+
+        #OpeningFormHidemaruHandle = member(#CHECK_OBJ, "GetOpenAIFormUsedHideamruHandle");
+
+        // 使っているウィンドウハンドルがある
+        if (#OpeningFormHidemaruHandle > 0 ) {
+
+            // 一旦対象のウィンドウをアクティブにして...
+            #CurrentHidemaruHandle = hidemaruhandle(0);
+
+            if (#CurrentHidemaruHandle != #OpeningFormHidemaruHandle) {
+                setactivehidemaru #OpeningFormHidemaruHandle;
+            }
+
+            // 改めて普段通りの処理を実行
+            call SHOW_OPENAI_FORM;
+            
+            // 元のウィンドウに戻す。
+            if (#CurrentHidemaruHandle != #OpeningFormHidemaruHandle) {
+                setactivehidemaru #CurrentHidemaruHandle;
+            }
+        }
     }
     endmacro;
 
