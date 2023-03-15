@@ -22,6 +22,8 @@ namespace HmOpenAIChatGpt35Turbo
     {
         const string NewLine = "\r\n";
 
+        IOutputWriter output;
+
         const string OpenAIKeyEnvironmentVariableName = "OPENAI_KEY";
         static string? OpenAIKeyOverWriteVariable = null; // 直接APIの値を上書き指定している場合(マクロなどからの直接の引き渡し)
         const string ErrorMessageNoOpenAIKey = OpenAIKeyEnvironmentVariableName + "キーが環境変数にありません。:" + NewLine;
@@ -148,10 +150,9 @@ namespace HmOpenAIChatGpt35Turbo
                     string? str = completion.Choices.FirstOrDefault()?.Message.Content;
                     if (str != null)
                     {
-                        str = str.Replace("\n", NewLine);
+                        output.Write(str);
                         answer_sum += str ?? "";
                     }
-                    Hm.OutputPane.Output(str);
                 }
                 else
                 {
@@ -160,16 +161,17 @@ namespace HmOpenAIChatGpt35Turbo
                         throw new Exception(ErrorMsgUnknown);
                     }
 
-                    Hm.OutputPane.Output($"{completion.Error.Code}: {completion.Error.Message}" + NewLine);
+                    output.WriteLine($"{completion.Error.Code}: {completion.Error.Message}");
                 }
             }
 
             messageList.Add(ChatMessage.FromAssistant(answer_sum));
-            Hm.OutputPane.Output(AssistanceAnswerCompleteMsg + NewLine);
+            output.WriteLine(AssistanceAnswerCompleteMsg);
         }
 
-        public OpenAIChatMain(string key="")
+        public OpenAIChatMain(string key, IOutputWriter output)
         {
+            this.output = output;
             // とりあえず代入。エラーならChatGPTの方が言ってくれる。
             if (key.Length > 0)
             {

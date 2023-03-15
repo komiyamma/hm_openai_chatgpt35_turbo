@@ -5,15 +5,17 @@ namespace HmOpenAIChatGpt35Turbo
 
     [ComVisible(true)]
     [Guid("BCCBE82C-56E1-4056-AE7C-3C4F62806732")]
-    public class HmChatGpt35Turbo
+    public class HmChatGPT35Turbo
     {
         private static AppForm? form;
+        private static HmOutputWriter? output;
 
         public int CreateForm(string key = "")
         {
             if (form == null || !form.Visible)
             {
-                form = new AppForm(key);
+                output = new HmOutputWriter();
+                form = new AppForm(key, output);
             }
 
             form.Show();

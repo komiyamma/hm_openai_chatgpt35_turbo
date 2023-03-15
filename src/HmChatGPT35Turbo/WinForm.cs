@@ -12,8 +12,11 @@ namespace HmOpenAIChatGpt35Turbo
     {
         const string NewLine = "\r\n";
 
-        public AppForm(string key = "")
+        IOutputWriter output;
+
+        public AppForm(string key, IOutputWriter output)
         {
+            this.output = output;
             try
             {
                 SetForm();
@@ -24,8 +27,7 @@ namespace HmOpenAIChatGpt35Turbo
             }
             catch (Exception ex)
             {
-                var msg = ex.ToString().Replace("\n", NewLine);
-                Hm.OutputPane.Output(msg);
+                output.WriteLine(ex.ToString());
             }
 
         }
@@ -157,7 +159,7 @@ namespace HmOpenAIChatGpt35Turbo
             if (ai != null)
             {
                 ai.AddQuestion(trim);
-                Hm.OutputPane.Output(trim + NewLine);
+                output.WriteLine(trim);
             }
             if (tb != null)
             {
@@ -187,14 +189,13 @@ namespace HmOpenAIChatGpt35Turbo
             }
             catch (OperationCanceledException ex)
             {
-                Hm.OutputPane.Output(ex.Message + NewLine);
+                output.WriteLine(ex.Message);
                 // キャンセルトークン経由なら正規の中断だろうからなにもしない
             }
             catch (Exception ex)
             {
                 string err = ex.Message + NewLine + ex.StackTrace;
-                err = err.Replace("\n", NewLine);
-                Hm.OutputPane.Output(err + "\r\n");
+                output.WriteLine(err);
             }
 
             finally
@@ -225,8 +226,7 @@ namespace HmOpenAIChatGpt35Turbo
             catch (Exception ex)
             {
                 string err = ex.Message + NewLine + ex.StackTrace;
-                err = err.Replace("\n", NewLine);
-                Hm.OutputPane.Output(err + "\r\n");
+                output.WriteLine(err);
             }
             finally
             {
@@ -238,13 +238,12 @@ namespace HmOpenAIChatGpt35Turbo
         {
             try
             {
-                ai = new OpenAIChatMain(key);
+                ai = new OpenAIChatMain(key, output);
             }
             catch (Exception ex)
             {
                 string err = ex.Message + NewLine + ex.StackTrace;
-                err = err.Replace("\n", NewLine);
-                Hm.OutputPane.Output(err + "\r\n");
+                output.WriteLine(err);
             }
         }
 
@@ -255,15 +254,13 @@ namespace HmOpenAIChatGpt35Turbo
                 string? msg = e.Data;
                 if (msg != null)
                 {
-                    msg = msg.Replace("\n", NewLine);
-                    Hm.OutputPane.Output(msg + NewLine);
+                    output.WriteLine(msg);
                 }
             }
             catch (Exception ex)
             {
                 string err = ex.Message + NewLine + ex.StackTrace;
-                err = err.Replace("\n", NewLine);
-                Hm.OutputPane.Output(err + "\r\n");
+                output.WriteLine(err);
             }
         }
     }
