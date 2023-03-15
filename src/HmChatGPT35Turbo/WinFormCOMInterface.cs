@@ -15,7 +15,16 @@ namespace HmOpenAIChatGpt35Turbo
 
         private long OpeningFormHidemaruHandle()
         {
-            string opening_hidemaruhandle = Hm.Macro.StaticVar["HmOpenAIChatGpt35Turbo_HidemaruHandle", 1];
+            string opening_hidemaruhandle = "-1";
+            if (Hm.Version >= 915.99)
+            {
+                opening_hidemaruhandle = Hm.Macro.StaticVar["HmOpenAIChatGpt35Turbo_HidemaruHandle", 1];
+            }
+            else
+            {
+                var ret = Hm.Macro.Function("getstaticvariable", "HmOpenAIChatGpt35Turbo_HidemaruHandle", 1);
+                opening_hidemaruhandle = (String)ret.Result;
+            }
             long result = -1;
             if (long.TryParse(opening_hidemaruhandle, out result))
             {
