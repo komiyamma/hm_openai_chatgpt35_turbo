@@ -140,7 +140,7 @@ namespace HmOpenAIChatGpt35Turbo
         const string ErrorMsgUnknown = "Unknown Error:" + NewLine;
         // チャットの反復
 
-        const string AssistanceAnswerCancelMsg = NewLine + "-- ChatGPTの回答を途中キャンセルしました --" + NewLine;
+        const string AssistanceAnswerCancelMsg = NewLine + "-- ChatGPTの解答を途中キャンセルしました --" + NewLine;
         public async Task AddAnswer(CancellationToken ct)
         {
             string answer_sum = "";

@@ -191,6 +191,10 @@ namespace HmOpenAIChatGpt35Turbo
                 {
                     btnCancel.Enabled = false;
                 }
+                if (btnOk != null)
+                {
+                    btnOk.Enabled = true;
+                }
             }
 
         }
@@ -214,7 +218,6 @@ namespace HmOpenAIChatGpt35Turbo
             }
             finally
             {
-                if (btnOk != null) { btnOk.Enabled = true; }
             }
         }
         OpenAIChatMain? ai;

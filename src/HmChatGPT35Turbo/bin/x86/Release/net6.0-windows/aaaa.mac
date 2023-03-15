@@ -6,6 +6,6 @@ keepobject #obj, 1;
 // 秀丸プロセスが閉じる際に(エラーで閉じる際も含めて)、このメソッドを実行する
 setcomdetachmethod #obj, "DestroyForm";
 
-$str_add = member(#obj, "CreateForm", "a");
+$str_add = member(#obj, "CreateForm", "");
 
 
