@@ -21,16 +21,6 @@ namespace HmOpenAIChatGpt35Turbo
             this.output = output;
             this.input = input;
 
-            long handle = (long)Hm.WindowHandle;
-            if (Hm.Version >= 915.99)
-            {
-                Hm.Macro.StaticVar["HmOpenAIChatGpt35Turbo_HidemaruHandle", 1] = handle.ToString();
-            }
-            else
-            {
-                Hm.Macro.Statement("setstaticvariable", handle.ToString(), 1);
-            }
-
             try
             {
                 SetForm();
@@ -55,15 +45,6 @@ namespace HmOpenAIChatGpt35Turbo
 
         private void AppForm_FormClosing(object? sender, FormClosingEventArgs e)
         {
-            if (Hm.Version >= 915.99)
-            {
-                Hm.Macro.StaticVar["HmOpenAIChatGpt35Turbo_HidemaruHandle", 1] = "-1";
-            }
-            else
-            {
-                Hm.Macro.Statement("setstaticvariable", "-1", 1);
-            }
-
             if (ai == null)
             {
                 return;

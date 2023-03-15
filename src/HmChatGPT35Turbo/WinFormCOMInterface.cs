@@ -13,41 +13,8 @@ namespace HmOpenAIChatGpt35Turbo
         private static HmOutputWriter? output;
         private static HmInputReader? input;
 
-        private long OpeningFormHidemaruHandle()
-        {
-            string opening_hidemaruhandle = "-1";
-            if (Hm.Version >= 915.99)
-            {
-                opening_hidemaruhandle = Hm.Macro.StaticVar["HmOpenAIChatGpt35Turbo_HidemaruHandle", 1];
-            }
-            else
-            {
-                var ret = Hm.Macro.Function("getstaticvariable", "HmOpenAIChatGpt35Turbo_HidemaruHandle", 1);
-                opening_hidemaruhandle = (String)ret.Result;
-            }
-            long result = -1;
-            if (long.TryParse(opening_hidemaruhandle, out result))
-            {
-                // 有効なハンドルが入っている
-                if (result > 0)
-                {
-                    // 現在の秀丸のハンドル異なる。
-                    if (result != (long)Hm.WindowHandle)
-                    {
-                        return result;
-                    }
-                }
-            }
-            return -1;
-        }
         public long CreateForm(string key = "")
         {
-            long hidemaruhandle = OpeningFormHidemaruHandle();
-            if (hidemaruhandle != -1)
-            {
-                return hidemaruhandle;
-            }
-
             if (form != null)
             {
                 form.UpdateTextBox();
