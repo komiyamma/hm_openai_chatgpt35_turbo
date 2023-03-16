@@ -68,6 +68,7 @@ CHECK_OPENAI_USED_HIDEMARUHANDLE:
     endmacro;
 
 
+// フォームの表示
 SHOW_OPENAI_FORM:
 
     #CHATGPT_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");

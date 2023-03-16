@@ -13,7 +13,7 @@ SET_OPENAI_KEY:
     $OPENAI_KEY = getenv("OPENAI_KEY");
 
     if ($OPENAI_KEY == "") {
-        $OPENAI_KEY = ""; // 直接ここでAPIを指定しても良いですが、あまり推奨はしません。直書きする場合、このマクロを迂闊に配布して他者にAPIのキーが漏れないよう注意。
+        $OPENAI_KEY = ""; // 直接ここでAPIのKEYの文字列を指定しても良いですが、あまり推奨はしません。直書きする場合、このマクロを迂闊に配布して他者にAPIのキーが漏れないよう注意。
     }
 
 // 選択テキストの保持 ($HmSelectedTextという変数名を変更しないこと)
@@ -68,6 +68,7 @@ CHECK_OPENAI_USED_HIDEMARUHANDLE:
     endmacro;
 
 
+// フォームの表示
 SHOW_OPENAI_FORM:
 
     #CHATGPT_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
