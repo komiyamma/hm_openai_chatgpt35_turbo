@@ -36,9 +36,9 @@ CHECK_OPENAI_USED_HIDEMARUHANDLE:
     // HmOpenAIGPT35Turbo のウィンドウが既にあって、かつ、テキスト選択がある
     } else if (selecting) {
 
-        #CHECK_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
+        #CHECK_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{9818F69E-A37D-4A03-BCA1-C4C172366473}");
 
-        #OpeningFormHidemaruHandle = member(#CHECK_OBJ, "GetOpenAIFormUsedHideamruHandle");
+        #OpeningFormHidemaruHandle = member(#CHECK_OBJ, "GetFormHideamruHandle");
 
         // HmOpenAIGPT35Turboを使っている有効な秀丸ハンドルがある
         if (#OpeningFormHidemaruHandle > 0 ) {

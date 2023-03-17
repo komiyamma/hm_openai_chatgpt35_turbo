@@ -14,7 +14,8 @@ namespace HmOpenAIChatGpt35Turbo
         private static HmOutputWriter? output;
         private static HmInputReader? input;
 
-        private static MemoryMappedFile? share_mem;
+        HmChatGPT35TurboSharedMemory sm = new HmChatGPT35TurboSharedMemory();
+
         public long CreateForm(string key = "")
         {
             if (form != null)
@@ -24,18 +25,42 @@ namespace HmOpenAIChatGpt35Turbo
 
             if (form == null || !form.Visible)
             {
-                CreateSharedMemory();
-
                 output = new HmOutputWriter();
                 input = new HmInputReader();
                 form = new AppForm(key, output, input);
+
+                sm.CreateSharedMemory();
             }
 
             form.Show();
             return -1;
         }
 
-        private void CreateSharedMemory()
+
+
+        // 秀丸のバージョンによって引数を渡してくるものと渡してこないものがあるので、デフォルト引数は必要。
+        // (引数がないと、引数ミスマッチということで、呼び出し自体されない)
+        public long DestroyForm(int result = 0)
+        {
+            if (form != null)
+            {
+                form.Close();
+                form = null;
+
+                sm.DeleteSharedMemory();
+            }
+
+            return 1;
+        }
+    }
+
+    [ComVisible(true)]
+    [Guid("9818F69E-A37D-4A03-BCA1-C4C172366473")]
+    public class HmChatGPT35TurboSharedMemory
+    {
+        private static MemoryMappedFile? share_mem;
+
+        public void CreateSharedMemory()
         {
             try
             {
@@ -48,7 +73,7 @@ namespace HmOpenAIChatGpt35Turbo
             catch (Exception) { }
         }
 
-        private long GetSharedMemory()
+        public long GetSharedMemory()
         {
             long value = 0;
             try
@@ -64,7 +89,7 @@ namespace HmOpenAIChatGpt35Turbo
             return value;
         }
 
-        private void DeleteSharedMemory()
+        public void DeleteSharedMemory()
         {
             try
             {
@@ -77,27 +102,15 @@ namespace HmOpenAIChatGpt35Turbo
                     share_mem.Dispose();
                     share_mem = null;
                 }
-            } catch(Exception) { }
+            }
+            catch (Exception) { }
         }
 
-        public long GetOpenAIFormUsedHideamruHandle()
+
+        public long GetFormHideamruHandle()
         {
             return GetSharedMemory();
         }
-
-        // 秀丸のバージョンによって引数を渡してくるものと渡してこないものがあるので、デフォルト引数は必要。
-        // (引数がないと、引数ミスマッチということで、呼び出し自体されない)
-        public long DestroyForm(int result = 0)
-        {
-            if (form != null)
-            {
-                form.Close();
-                form = null;
-
-                DeleteSharedMemory();
-            }
-
-            return 1;
-        }
     }
+
 }
