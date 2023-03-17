@@ -203,7 +203,14 @@ namespace HmOpenAIChatGpt35Turbo
             }
             catch (OperationCanceledException ex)
             {
-                output.WriteLine(ex.Message);
+                if (ex.Message == "The operation was canceled.")
+                {
+                    output.WriteLine(ai.GetAssistanceAnswerCancelMsg());
+                }
+                else
+                {
+                    output.WriteLine(ex.Message);
+                }
                 // キャンセルトークン経由なら正規の中断だろうからなにもしない
             }
             catch (Exception ex)

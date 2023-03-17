@@ -5,6 +5,7 @@ using OpenAI.GPT3.ObjectModels;
 using OpenAI.GPT3.ObjectModels.RequestModels;
 using OpenAI.GPT3.ObjectModels.ResponseModels;
 using HmNetCOM;
+using OpenAI.GPT3.Interfaces;
 
 namespace HmOpenAIChatGpt35Turbo
 {
@@ -91,7 +92,7 @@ namespace HmOpenAIChatGpt35Turbo
 
         const string ChatGPTStartSystemMessage = "You are a helpful assistant.";
         // チャットのエンジンやオプション。過去のチャット内容なども渡す。
-        static IAsyncEnumerable<ChatCompletionCreateResponse> ReBuildPastChatContents()
+        static IAsyncEnumerable<ChatCompletionCreateResponse> ReBuildPastChatContents(CancellationToken ct)
         {
             var key = GetOpenAIKey();
             if (key == null)
@@ -120,7 +121,7 @@ namespace HmOpenAIChatGpt35Turbo
                 MaxTokens = 2000
             };
 
-            var completionResult = openAiService.ChatCompletion.CreateCompletionAsStream(options);
+           var completionResult = openAiService.ChatCompletion.CreateCompletionAsStream(options, null, ct);
             return completionResult;
         }
 
@@ -130,10 +131,15 @@ namespace HmOpenAIChatGpt35Turbo
         // チャットの反復
 
         const string AssistanceAnswerCancelMsg = NewLine + "-- ChatGPTの解答を途中キャンセルしました --" + NewLine;
+        public string GetAssistanceAnswerCancelMsg()
+        {
+            return AssistanceAnswerCancelMsg;
+        }
+
         public async Task AddAnswer(CancellationToken ct)
         {
             string answer_sum = "";
-            var completionResult = ReBuildPastChatContents();
+            var completionResult = ReBuildPastChatContents(ct);
 
             await foreach (var completion in completionResult)
             {
