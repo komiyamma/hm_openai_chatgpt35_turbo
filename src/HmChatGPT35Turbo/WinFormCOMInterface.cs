@@ -93,9 +93,9 @@ namespace HmOpenAIChatGpt35Turbo
             {
                 form.Close();
                 form = null;
-            }
 
-            DeleteSharedMemory();
+                DeleteSharedMemory();
+            }
 
             return 1;
         }
