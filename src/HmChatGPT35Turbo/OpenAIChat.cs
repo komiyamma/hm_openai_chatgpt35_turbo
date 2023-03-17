@@ -100,7 +100,10 @@ namespace HmOpenAIChatGpt35Turbo
                 throw new OpenAIKeyNotFoundException(ErrorMessageNoOpenAIKey);
             }
 
-            openAiService = ConnectOpenAIService(key);
+            if (openAiService == null)
+            {
+                openAiService = ConnectOpenAIService(key);
+            }
             if (openAiService == null)
             {
                 throw new OpenAIServiceNotFoundException(ErrorMessageNoOpenAIService);
