@@ -18,6 +18,7 @@ namespace HmOpenAIChatGpt35Turbo
 
         public AppForm(string key, IOutputWriter output, IInputReader input)
         {
+            // 「入力」や「出力」の対象を外部から受け取り
             this.output = output;
             this.input = input;
 
@@ -36,6 +37,7 @@ namespace HmOpenAIChatGpt35Turbo
 
         }
 
+        // フォーム属性の設定
         void SetForm()
         {
             this.Text = "*-- HmChatGPT35Turbo --*";
@@ -53,6 +55,7 @@ namespace HmOpenAIChatGpt35Turbo
 
             try
             {
+                // 中断したことと同じことをしておく
                 BtnCancel_Click(null, e);
             }
             catch (Exception)
@@ -79,6 +82,7 @@ namespace HmOpenAIChatGpt35Turbo
             UpdateTextBox();
         }
 
+        // 秀丸で選択中のテキストがある状態でマクロが実行されたら、TextBoxで受け取る。
         public void UpdateTextBox()
         {
             if (tb != null)
@@ -98,12 +102,13 @@ namespace HmOpenAIChatGpt35Turbo
             }
         }
 
+        // キーボードで「CTRL+リターン」だと、ボタンをクリックしたことと同じこととする。
         private void Tb_KeyDown(object? sender, KeyEventArgs e)
         {
             // リターンキーが押されていて
             if (e.KeyCode == Keys.Return)
             {
-                // CTRLキーも押されている時だけ、ボタンを押した相当にする。
+                // CTRLキーも押されている時だけ、送信ボタンを押した相当にする。
                 if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
                 {
                     BtnOk_Click(null, e);
@@ -111,6 +116,7 @@ namespace HmOpenAIChatGpt35Turbo
             }
         }
 
+        // 送信ボタン
         private Button? btnOk;
         void SetOkButton()
         {
@@ -129,6 +135,7 @@ namespace HmOpenAIChatGpt35Turbo
 
         }
 
+        // 中断ボタン
         private Button? btnCancel;
 
         void SetCancelButton()
@@ -149,8 +156,10 @@ namespace HmOpenAIChatGpt35Turbo
 
         }
 
+        // 送信したらフリーズ時間や解答時間が長いことがあるので、中断用にCancellationTokenSource/CancellationTokenを用意
         static CancellationTokenSource? cs;
 
+        // 中断ボタンおしたら中断用にCancellationTokenSourceにCancel発行する
         private void BtnCancel_Click(object? sender, EventArgs e)
         {
             if (ai != null)
@@ -162,6 +171,8 @@ namespace HmOpenAIChatGpt35Turbo
             }
         }
 
+        // 入力された質問を処理する。
+        // AIに質問内容を追加し、TextBox⇒アウトプット枠へとメッセージを移動したかのような表示とする。
         private void PostQuestion()
         {
             var trim = tb?.Text.TrimEnd();
@@ -173,7 +184,7 @@ namespace HmOpenAIChatGpt35Turbo
             if (ai != null)
             {
                 ai.AddQuestion(trim);
-                output.WriteLine(trim);
+                output.WriteLine(trim + NewLine);
             }
             if (tb != null)
             {
@@ -181,6 +192,7 @@ namespace HmOpenAIChatGpt35Turbo
             }
         }
 
+        // ChatGPTの解答を得る。中断できるようにCancellationTokenを渡す。
         private async Task GetAnswer()
         {
             try
@@ -205,7 +217,9 @@ namespace HmOpenAIChatGpt35Turbo
             {
                 if (ex.Message == "The operation was canceled.")
                 {
-                    output.WriteLine(ai.GetAssistanceAnswerCancelMsg());
+                    if (ai != null) { 
+                        output.WriteLine(ai.GetAssistanceAnswerCancelMsg());
+                    }
                 }
                 else
                 {
@@ -233,6 +247,7 @@ namespace HmOpenAIChatGpt35Turbo
 
         }
 
+        // 送信ボタンを押すと、質問内容をAIに登録、答えを得る処理へ
         private void BtnOk_Click(object? sender, EventArgs e)
         {
             if (ai == null) { return; }
@@ -253,30 +268,16 @@ namespace HmOpenAIChatGpt35Turbo
             {
             }
         }
+
+        // aiの処理。キレイには切り分けられてないが、Modelに近い。
         OpenAIChatMain? ai;
 
+        // 最初生成
         void SetOpenAI(string key)
         {
             try
             {
                 ai = new OpenAIChatMain(key, output);
-            }
-            catch (Exception ex)
-            {
-                string err = ex.Message + NewLine + ex.StackTrace;
-                output.WriteLine(err);
-            }
-        }
-
-        private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            try
-            {
-                string? msg = e.Data;
-                if (msg != null)
-                {
-                    output.WriteLine(msg);
-                }
             }
             catch (Exception ex)
             {

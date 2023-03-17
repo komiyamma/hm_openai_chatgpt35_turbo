@@ -9,11 +9,13 @@ using OpenAI.GPT3.Interfaces;
 
 namespace HmOpenAIChatGpt35Turbo
 {
+    // OPENAI_API_KEYが設定されてないよってなエラー
     class OpenAIKeyNotFoundException : KeyNotFoundException
     {
         public OpenAIKeyNotFoundException(string msg) : base(msg) { }
     }
 
+    // OpenAIのサービスに接続できないよ系
     class OpenAIServiceNotFoundException : Exception
     {
         public OpenAIServiceNotFoundException(string msg) : base(msg) { }
@@ -21,7 +23,7 @@ namespace HmOpenAIChatGpt35Turbo
 
     class OpenAIChatMain
     {
-
+        // 出力対象のDI用
         IOutputWriter output;
 
         const string NewLine = "\r\n";
@@ -29,6 +31,19 @@ namespace HmOpenAIChatGpt35Turbo
         const string OpenAIKeyEnvironmentVariableName = "OPENAI_KEY";
         static string? OpenAIKeyOverWriteVariable = null; // 直接APIの値を上書き指定している場合(マクロなどからの直接の引き渡し)
         const string ErrorMessageNoOpenAIKey = OpenAIKeyEnvironmentVariableName + "キーが環境変数にありません。:" + NewLine;
+
+        public OpenAIChatMain(string key, IOutputWriter output)
+        {
+            // 出力対象のDI用
+            this.output = output;
+
+            // とりあえず代入。エラーならChatGPTの方が言ってくれる。
+            if (key.Length > 0)
+            {
+                OpenAIKeyOverWriteVariable = key;
+            }
+            GetOpenAIKey(); // かまし
+        }
 
         // OpenAIのキーの取得
         static string? GetOpenAIKey()
@@ -64,6 +79,7 @@ namespace HmOpenAIChatGpt35Turbo
         // OpenAIサービスのインスタンス。一応保持
         static OpenAIService? openAiService = null;
 
+        // OpenAIへの接続
         static OpenAIService? ConnectOpenAIService(string key)
         {
             try
@@ -81,16 +97,13 @@ namespace HmOpenAIChatGpt35Turbo
             }
         }
 
-        // OpenAIサービスのインスタンスのクリア。多分disconnectみたいなメソッドはない。
-        static void ClearOpenAIService()
-        {
-            openAiService = null;
-        }
 
-        // OpenAIサービスのインスタンスのクリア。多分disconnectみたいなメソッドはない。
+        // OpenAIにわたす会話ログ。基本的にOpenAIは会話の文脈を覚えているので、メッセージログ的なものを渡す必要がある。
         static List<ChatMessage> messageList = new();
 
+        // 最初のシステムメッセージ。
         const string ChatGPTStartSystemMessage = "You are a helpful assistant.";
+
         // チャットのエンジンやオプション。過去のチャット内容なども渡す。
         static IAsyncEnumerable<ChatCompletionCreateResponse> ReBuildPastChatContents(CancellationToken ct)
         {
@@ -109,14 +122,18 @@ namespace HmOpenAIChatGpt35Turbo
                 throw new OpenAIServiceNotFoundException(ErrorMessageNoOpenAIService);
             }
 
+            // 最初にシステムからの挨拶メッセージ
             var list = new List<ChatMessage>();
             list.Add(ChatMessage.FromSystem(ChatGPTStartSystemMessage));
 
+            // 次に人間とChatGPTの会話を履歴として追加していく
             foreach (var mes in messageList)
             {
                 list.Add(mes);
             }
 
+            // オプション。1000～2000トークンぐらいでセーフティかけておくのがいいだろう。
+            // 元々ChatGPTの方でも4000トークンぐらいでセーフティがかかってる模様
             var options = new ChatCompletionCreateRequest
             {
                 Messages = list,
@@ -124,7 +141,8 @@ namespace HmOpenAIChatGpt35Turbo
                 MaxTokens = 2000
             };
 
-           var completionResult = openAiService.ChatCompletion.CreateCompletionAsStream(options, null, ct);
+            // ストリームとして会話モードを確率する。ストリームにすると解答が１文字ずつ順次表示される。
+            var completionResult = openAiService.ChatCompletion.CreateCompletionAsStream(options, null, ct);
             return completionResult;
         }
 
@@ -144,10 +162,13 @@ namespace HmOpenAIChatGpt35Turbo
             string answer_sum = "";
             var completionResult = ReBuildPastChatContents(ct);
 
+            // ストリーム型で確立しているので、async的に扱っていく
             await foreach (var completion in completionResult)
             {
+                // キャンセルが要求された時、
                 if (ct.IsCancellationRequested)
                 {
+                    // 一応Dispose呼んでおく(CancellationToken渡しているので不要なきもするが...)
                     await completionResult.GetAsyncEnumerator().DisposeAsync();
                     throw new OperationCanceledException(AssistanceAnswerCancelMsg);
                 }
@@ -155,8 +176,10 @@ namespace HmOpenAIChatGpt35Turbo
                 // キャンセルされてたら OperationCanceledException を投げるメソッド
                 ct.ThrowIfCancellationRequested();
 
+                // 会話成功なら
                 if (completion.Successful)
                 {
+                    // ちろっと文字列追加表示
                     string? str = completion.Choices.FirstOrDefault()?.Message.Content;
                     if (str != null)
                     {
@@ -166,6 +189,7 @@ namespace HmOpenAIChatGpt35Turbo
                 }
                 else
                 {
+                    // 失敗なら何かエラーと原因を表示
                     if (completion.Error == null)
                     {
                         throw new Exception(ErrorMsgUnknown);
@@ -175,21 +199,14 @@ namespace HmOpenAIChatGpt35Turbo
                 }
             }
 
+            // 今回の返答ををChatGPTの返答として記録しておく
             messageList.Add(ChatMessage.FromAssistant(answer_sum));
+
+            // 解答が完了したよ～というのを人にわかるように表示
             output.WriteLine(AssistanceAnswerCompleteMsg);
         }
 
-        public OpenAIChatMain(string key, IOutputWriter output)
-        {
-            this.output = output;
-            // とりあえず代入。エラーならChatGPTの方が言ってくれる。
-            if (key.Length > 0)
-            {
-                OpenAIKeyOverWriteVariable = key;
-            }
-            GetOpenAIKey(); // かまし
-        }
-
+        // 質問内容はそのまま履歴に追加する
         public void AddQuestion(string question)
         {
             messageList.Add(ChatMessage.FromUser(question));
