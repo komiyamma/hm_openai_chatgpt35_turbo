@@ -8,4 +8,4 @@
 
 「秀丸エディタ」で「ChatGPT 3.5 Turbo」を扱うためのコンポーネント
 
-https://xn--pckzexbx21r8q9b.net/?page=nobu_tool_hm_chatgpt35turbo
+https://秀丸マクロ.net/?page=nobu_tool_hm_chatgpt35turbo
