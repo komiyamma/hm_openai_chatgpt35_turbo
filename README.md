@@ -6,4 +6,6 @@
 ![Hidemaru 8.98](https://img.shields.io/badge/Hidemaru-v8.98-6479ff.svg)
 ![.NET 6.0](https://img.shields.io/badge/.NET-v6.0-6479ff.svg)
 
+「秀丸エディタ」で「ChatGPT 3.5 Turbo」を扱うためのコンポーネント
+
 https://xn--pckzexbx21r8q9b.net/?page=nobu_tool_hm_chatgpt35turbo
