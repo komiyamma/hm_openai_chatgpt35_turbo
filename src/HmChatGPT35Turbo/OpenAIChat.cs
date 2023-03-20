@@ -72,9 +72,6 @@ namespace HmOpenAIChatGpt35Turbo
             return NoQuestionMessage;
         }
 
-        const string ChatEndMessage = "チャットを終了";
-        // 質問内容の取得
-
         const string ErrorMessageNoOpenAIService = "OpenAIのサービスに接続できません。:" + NewLine;
         // OpenAIサービスのインスタンス。一応保持
         static OpenAIService? openAiService = null;
@@ -93,6 +90,8 @@ namespace HmOpenAIChatGpt35Turbo
             }
             catch (Exception)
             {
+                openAiService = null;
+                messageList.Clear();
                 throw;
             }
         }
