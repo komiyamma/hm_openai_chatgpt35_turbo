@@ -215,7 +215,7 @@ namespace HmOpenAIChatGpt35Turbo
             }
             catch (OperationCanceledException ex)
             {
-                if (ex.Message == "The operation was canceled.")
+                if (ex.Message == "The operation was canceled." || ex.Message == "A task was canceled.")
                 {
                     if (ai != null) { 
                         output.WriteLine(ai.GetAssistanceAnswerCancelMsg());
