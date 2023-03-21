@@ -1,7 +1,6 @@
-﻿using HmNetCOM;
-using System.IO.MemoryMappedFiles;
+﻿using System.IO.MemoryMappedFiles;
 using System.Runtime.InteropServices;
-using System.Threading;
+using HmNetCOM;
 
 namespace HmOpenAIChatGpt35Turbo
 {
@@ -33,10 +32,11 @@ namespace HmOpenAIChatGpt35Turbo
             }
 
             form.Show();
+
+            // フォームを前に持ってくるだけ
+            form.BringToFront();
             return -1;
         }
-
-
 
         // 秀丸のバージョンによって引数を渡してくるものと渡してこないものがあるので、デフォルト引数は必要。
         // (引数がないと、引数ミスマッチということで、呼び出し自体されない)

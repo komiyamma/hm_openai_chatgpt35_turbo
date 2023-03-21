@@ -1,5 +1,5 @@
 ﻿/*--------------------------------------------
- * HmOpenAIChatGPT35Turbo v1.0.4
+ * HmOpenAIChatGPT35Turbo v1.0.5
  * 
  * Copyright (C) 2023 Akitsugu Komiyama
  * under the MIT License
@@ -33,12 +33,12 @@ CHECK_OPENAI_USED_HIDEMARUHANDLE:
         // 普段通りの処理を実行
         call SHOW_OPENAI_FORM;
 
-    // HmOpenAIGPT35Turbo のウィンドウが既にあって、かつ、テキスト選択がある
-    } else if (selecting) {
+    // HmOpenAIGPT35Turbo のウィンドウが既にある
+    } else {
 
-        #CHECK_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{9818F69E-A37D-4A03-BCA1-C4C172366473}");
+        #JUDGE_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{9818F69E-A37D-4A03-BCA1-C4C172366473}");
 
-        #OpeningFormHidemaruHandle = member(#CHECK_OBJ, "GetFormHideamruHandle");
+        #OpeningFormHidemaruHandle = member(#JUDGE_OBJ, "GetFormHideamruHandle");
 
         // HmOpenAIGPT35Turboを使っている有効な秀丸ハンドルがある
         if (#OpeningFormHidemaruHandle > 0 ) {
@@ -50,7 +50,6 @@ CHECK_OPENAI_USED_HIDEMARUHANDLE:
                 setactivehidemaru #OpeningFormHidemaruHandle;
             }
 
-            // 改めて普段通りの処理を実行
             call SHOW_OPENAI_FORM;
 
             // 元のウィンドウに戻す。
@@ -64,7 +63,9 @@ CHECK_OPENAI_USED_HIDEMARUHANDLE:
             call SHOW_OPENAI_FORM;
 
         }
+
     }
+
     endmacro;
 
 

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection.Metadata;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows.Forms;
-using HmNetCOM;
-
-namespace HmOpenAIChatGpt35Turbo
+﻿namespace HmOpenAIChatGpt35Turbo
 {
     class AppForm : Form
     {
@@ -28,6 +19,7 @@ namespace HmOpenAIChatGpt35Turbo
                 SetTextEdit();
                 SetOkButton();
                 SetCancelButton();
+                SetChatClearButton();
                 SetOpenAI(key);
             }
             catch (Exception ex)
@@ -132,6 +124,27 @@ namespace HmOpenAIChatGpt35Turbo
 
             btnOk.Click += BtnOk_Click;
             this.Controls.Add(btnOk);
+
+        }
+
+        // 会話履歴クリアボタン
+        private Button? btnChatClear;
+        void SetChatClearButton()
+        {
+            btnChatClear = new Button()
+            {
+                Text = "会話履歴クリア",
+                UseVisualStyleBackColor = true,
+                Top = 2,
+                Width = 120,
+                Height = 20,
+                Anchor = AnchorStyles.Right
+            };
+
+            btnChatClear.Location = new Point(ClientSize.Width - btnChatClear.Width - 2, 2);
+
+            btnChatClear.Click += BtnChatClear_Click;
+            this.Controls.Add(btnChatClear);
 
         }
 
@@ -243,6 +256,11 @@ namespace HmOpenAIChatGpt35Turbo
                 {
                     btnOk.Enabled = true;
                 }
+                if (btnChatClear != null)
+                {
+                    btnChatClear.Enabled = true;
+                }
+
             }
 
         }
@@ -255,9 +273,30 @@ namespace HmOpenAIChatGpt35Turbo
             try
             {
                 if (btnOk != null) { btnOk.Enabled = false; }
+                if (btnChatClear != null) { btnChatClear.Enabled = false; }
                 PostQuestion();
                 _ = GetAnswer();
 
+            }
+            catch (Exception ex)
+            {
+                string err = ex.Message + NewLine + ex.StackTrace;
+                output.WriteLine(err);
+            }
+            finally
+            {
+            }
+        }
+
+        // 送信ボタンを押すと、質問内容をAIに登録、答えを得る処理へ
+        private void BtnChatClear_Click(object? sender, EventArgs e)
+        {
+            if (ai == null) { return; }
+
+            try
+            {
+                OpenAIChatMain.InitMessages();
+                output.WriteLine("--会話履歴をクリア --");
             }
             catch (Exception ex)
             {

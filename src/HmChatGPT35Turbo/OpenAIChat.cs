@@ -1,11 +1,8 @@
-﻿
-using OpenAI.GPT3;
+﻿using OpenAI.GPT3;
 using OpenAI.GPT3.Managers;
 using OpenAI.GPT3.ObjectModels;
 using OpenAI.GPT3.ObjectModels.RequestModels;
 using OpenAI.GPT3.ObjectModels.ResponseModels;
-using HmNetCOM;
-using OpenAI.GPT3.Interfaces;
 
 namespace HmOpenAIChatGpt35Turbo
 {
@@ -43,6 +40,8 @@ namespace HmOpenAIChatGpt35Turbo
                 OpenAIKeyOverWriteVariable = key;
             }
             GetOpenAIKey(); // かまし
+
+            InitMessages();
         }
 
         // OpenAIのキーの取得
@@ -61,15 +60,6 @@ namespace HmOpenAIChatGpt35Turbo
             {
                 return OpenAIKeyOverWriteVariable;
             }
-        }
-
-
-        const string QuestionPromptMessages = "-- 質問をどうぞ --" + NewLine + NewLine;
-        const string NoQuestionMessage = "質問内容が無い" + NewLine;
-
-        public string GetQuestionMessageEmpty()
-        {
-            return NoQuestionMessage;
         }
 
         const string ErrorMessageNoOpenAIService = "OpenAIのサービスに接続できません。:" + NewLine;
@@ -91,7 +81,7 @@ namespace HmOpenAIChatGpt35Turbo
             catch (Exception)
             {
                 openAiService = null;
-                messageList.Clear();
+                InitMessages();
                 throw;
             }
         }
@@ -101,7 +91,17 @@ namespace HmOpenAIChatGpt35Turbo
         static List<ChatMessage> messageList = new();
 
         // 最初のシステムメッセージ。
-        const string ChatGPTStartSystemMessage = "You are a helpful assistant.";
+        const string ChatGPTStartSystemMessage = "何かお手伝い出来ることはありますか？"; // You are a helpful assistant. 日本語いれておくことで日本ユーザーをデフォルトとして考える
+
+        // 会話履歴のリセット。(AddAnswer中にリセットしないよう注意)
+        public static void InitMessages()
+        {
+            List<ChatMessage> list = new List<ChatMessage>
+            {
+                ChatMessage.FromSystem(ChatGPTStartSystemMessage)
+            };
+            messageList = list;
+        }
 
         // チャットのエンジンやオプション。過去のチャット内容なども渡す。
         static IAsyncEnumerable<ChatCompletionCreateResponse> ReBuildPastChatContents(CancellationToken ct)
@@ -112,6 +112,7 @@ namespace HmOpenAIChatGpt35Turbo
                 throw new OpenAIKeyNotFoundException(ErrorMessageNoOpenAIKey);
             }
 
+            List<ChatMessage> list = new();
             if (openAiService == null)
             {
                 openAiService = ConnectOpenAIService(key);
@@ -121,21 +122,11 @@ namespace HmOpenAIChatGpt35Turbo
                 throw new OpenAIServiceNotFoundException(ErrorMessageNoOpenAIService);
             }
 
-            // 最初にシステムからの挨拶メッセージ
-            var list = new List<ChatMessage>();
-            list.Add(ChatMessage.FromSystem(ChatGPTStartSystemMessage));
-
-            // 次に人間とChatGPTの会話を履歴として追加していく
-            foreach (var mes in messageList)
-            {
-                list.Add(mes);
-            }
-
             // オプション。1000～2000トークンぐらいでセーフティかけておくのがいいだろう。
             // 元々ChatGPTの方でも4000トークンぐらいでセーフティがかかってる模様
             var options = new ChatCompletionCreateRequest
             {
-                Messages = list,
+                Messages = messageList,
                 Model = Models.ChatGpt3_5Turbo,
                 MaxTokens = 2000
             };
