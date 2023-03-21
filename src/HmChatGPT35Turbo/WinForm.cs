@@ -138,7 +138,7 @@
                 Top = 2,
                 Width = 120,
                 Height = 20,
-                Anchor = AnchorStyles.Right
+                Anchor = AnchorStyles.Right | AnchorStyles.Top
             };
 
             btnChatClear.Location = new Point(ClientSize.Width - btnChatClear.Width - 2, 2);
