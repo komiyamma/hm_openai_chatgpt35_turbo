@@ -32,11 +32,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="C:\Users\master\.nuget\packages\hmnetcom\2.0.7.9\contentFiles\any\any\HmNetCOM.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>HmNetCOM.tt</DependentUpon>
-    </Compile>
+    <None Remove="C:\Users\master\.nuget\packages\hmnetcom\2.0.7.9\contentFiles\any\any\HmNetCOM.tt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,13 +41,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="C:\Users\master\.nuget\packages\hmnetcom\2.0.7.9\contentFiles\any\any\HmNetCOM.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
   <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+    <Compile Update="HmNetCOM.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HmNetCOM.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="HmNetCOM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HmNetCOM.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>
