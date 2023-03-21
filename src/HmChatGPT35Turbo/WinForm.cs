@@ -296,7 +296,7 @@
             try
             {
                 OpenAIChatMain.InitMessages();
-                output.WriteLine("--会話履歴をクリア --");
+                output.WriteLine("-- 会話履歴をクリア --");
             }
             catch (Exception ex)
             {
