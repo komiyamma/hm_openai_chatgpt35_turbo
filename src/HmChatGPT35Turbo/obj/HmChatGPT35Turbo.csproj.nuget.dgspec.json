@@ -48,7 +48,7 @@
           "dependencies": {
             "Betalgo.OpenAI.GPT3": {
               "target": "Package",
-              "version": "[6.8.0, )"
+              "version": "[6.8.1, )"
             },
             "HmNetCOM": {
               "target": "Package",

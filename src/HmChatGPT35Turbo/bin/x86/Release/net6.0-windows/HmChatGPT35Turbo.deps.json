@@ -8,22 +8,22 @@
     ".NETCoreApp,Version=v6.0": {
       "HmChatGPT35Turbo/1.0.5.2": {
         "dependencies": {
-          "Betalgo.OpenAI.GPT3": "6.8.0",
+          "Betalgo.OpenAI.GPT3": "6.8.1",
           "HmNetCOM": "2.0.7.9"
         },
         "runtime": {
           "HmChatGPT35Turbo.dll": {}
         }
       },
-      "Betalgo.OpenAI.GPT3/6.8.0": {
+      "Betalgo.OpenAI.GPT3/6.8.1": {
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/OpenAI.GPT3.dll": {
-            "assemblyVersion": "6.8.0.0",
-            "fileVersion": "6.8.0.0"
+            "assemblyVersion": "6.8.1.0",
+            "fileVersion": "6.8.1.0"
           }
         }
       },
@@ -159,12 +159,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Betalgo.OpenAI.GPT3/6.8.0": {
+    "Betalgo.OpenAI.GPT3/6.8.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7owhAciVqFFIDl/Ylxlv6NaCezCIz4WawedkJ4UKf8g2qE+W+i86MVo1PFcTS+7JOO6NkCPlpd8wCB1bXixnzg==",
-      "path": "betalgo.openai.gpt3/6.8.0",
-      "hashPath": "betalgo.openai.gpt3.6.8.0.nupkg.sha512"
+      "sha512": "sha512-P+sOCYfwkHbM08Bf2Y6UqDy06Blce6fUS9Ix5STCyr4LiIQ+WhpnmF5uhkAIDsAhCgBAxEkJORWniPuq1F/JPQ==",
+      "path": "betalgo.openai.gpt3/6.8.1",
+      "hashPath": "betalgo.openai.gpt3.6.8.1.nupkg.sha512"
     },
     "HmNetCOM/2.0.7.9": {
       "type": "package",
