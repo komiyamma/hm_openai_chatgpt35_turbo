@@ -1,0 +1,10 @@
+G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\bin\Debug\net6.0\HmChatGPT35Turbo.deps.json
+G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\bin\Debug\net6.0\HmChatGPT35Turbo.dll
+G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\obj\Debug\net6.0\HmChatGPT35Turbo.csproj.AssemblyReference.cache
+G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\obj\Debug\net6.0\HmChatGPT35Turbo.GeneratedMSBuildEditorConfig.editorconfig
+G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\obj\Debug\net6.0\HmChatGPT35Turbo.AssemblyInfoInputs.cache
+G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\obj\Debug\net6.0\HmChatGPT35Turbo.AssemblyInfo.cs
+G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\obj\Debug\net6.0\HmChatGPT35Turbo.csproj.CoreCompileInputs.cache
+G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\obj\Debug\net6.0\HmChatGPT35Turbo.dll
+G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\obj\Debug\net6.0\refint\HmChatGPT35Turbo.dll
+G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\obj\Debug\net6.0\ref\HmChatGPT35Turbo.dll

@@ -1,0 +1,86 @@
+﻿/*--------------------------------------------
+ * HmOpenAIChatGPT35Turbo v1.0.5
+ * 
+ * Copyright (C) 2023 Akitsugu Komiyama
+ * under the MIT License
+ * 
+ * (※秀丸エディタ v8.98以上)
+ --------------------------------------------*/
+
+// OPENAIのAPIのKEYの設定 
+SET_OPENAI_KEY:
+
+    $OPENAI_KEY = getenv("OPENAI_KEY");
+
+    if ($OPENAI_KEY == "") {
+        $OPENAI_KEY = ""; // 直接ここでAPIのKEYの文字列を指定しても良いですが、あまり推奨はしません。直書きする場合、このマクロを迂闊に配布して他者にAPIのキーが漏れないよう注意。
+    }
+
+// 選択テキストの保持 ($HmSelectedTextという変数名を変更しないこと)
+SAVE_SELECTED_TEXT:
+
+    if (selecting) {
+        $HmSelectedText = gettext2( seltopcolumn, seltoplineno, selendcolumn, selendlineno, 1 );
+    }
+
+
+// 他の秀丸プロセスでHmOpenAIGPT35Turboが使われているかどうか
+CHECK_OPENAI_USED_HIDEMARUHANDLE:
+
+    // HmOpenAIGPT35Turbo のウィンドウが無い
+    if (! findwindow("*-- HmChatGPT35Turbo --*")) {
+
+        // 普段通りの処理を実行
+        call SHOW_OPENAI_FORM;
+
+    // HmOpenAIGPT35Turbo のウィンドウが既にある
+    } else {
+
+        #JUDGE_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{9818F69E-A37D-4A03-BCA1-C4C172366473}");
+
+        #OpeningFormHidemaruHandle = member(#JUDGE_OBJ, "GetFormHideamruHandle");
+
+        // HmOpenAIGPT35Turboを使っている有効な秀丸ハンドルがある
+        if (#OpeningFormHidemaruHandle > 0 ) {
+
+            #CurrentHidemaruHandle = hidemaruhandle(0);
+
+            // 一旦対象のウィンドウをアクティブにして...
+            if (#CurrentHidemaruHandle != #OpeningFormHidemaruHandle) {
+                setactivehidemaru #OpeningFormHidemaruHandle;
+            }
+
+            call SHOW_OPENAI_FORM;
+
+            // 元のウィンドウに戻す。
+            if (#CurrentHidemaruHandle != #OpeningFormHidemaruHandle) {
+                setactivehidemaru #CurrentHidemaruHandle;
+            }
+
+        } else {
+
+            // 普段通りの処理を実行
+            call SHOW_OPENAI_FORM;
+
+        }
+
+    }
+
+    endmacro;
+
+
+// フォームの表示
+SHOW_OPENAI_FORM:
+
+    #CHATGPT_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT35Turbo.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
+
+    // 秀丸の該当プロセスが終了するまでオブジェクトは維持
+    keepobject #CHATGPT_OBJ, 1;
+
+    // 秀丸プロセスが閉じる際に(エラーで閉じる際も含めて)、このメソッドを実行する
+    setcomdetachmethod #CHATGPT_OBJ, "DestroyForm";
+
+    // フォームの表示。
+    #_ = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY);
+
+    return;
