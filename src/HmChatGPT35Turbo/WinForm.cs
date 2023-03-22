@@ -103,7 +103,10 @@
                 // CTRLキーも押されている時だけ、送信ボタンを押した相当にする。
                 if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
                 {
-                    BtnOk_Click(null, e);
+                    // 送信ボタンが有効なら
+                    if (btnOk != null && btnOk.Enabled) { 
+                        BtnOk_Click(null, e);
+                    }
                 }
             }
         }
