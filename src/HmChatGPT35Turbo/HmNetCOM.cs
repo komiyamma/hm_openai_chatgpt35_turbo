@@ -4,10 +4,10 @@
  * under the MIT License
  **/
 
+
 #if NET
 #nullable disable
 #endif
-
 
 using System;
 using System.IO;
@@ -21,6 +21,7 @@ using System.Runtime.InteropServices;
  * Copyright (C) 2021-2022 Akitsugu Komiyama
  * under the MIT License
  **/
+
 
 namespace HmNetCOM
 {

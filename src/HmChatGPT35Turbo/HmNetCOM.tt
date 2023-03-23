@@ -8,6 +8,10 @@
 <#@ import namespace="System.IO" #>
 <#@ output extension=".cs" #>
 
+#if NET
+#nullable disable
+#endif
+
 using System;
 using System.IO;
 using System.Text;
@@ -3322,3 +3326,6 @@ namespace HmNetCOM
     }
 }
 
+#if NET
+#nullable enable
+#endif
