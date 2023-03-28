@@ -101,6 +101,7 @@
                     tb.Text = selectedText;
                 }
 
+                this.ActiveControl = tb;
                 tb.Focus();
                 tb.Select(tb.Text.Length, 0); // カーソルの位置を末尾に配置しておく。
             }
