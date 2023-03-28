@@ -14,4 +14,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HmChatGPT35Turbo
-build_property.ProjectDir = G:\bbbb\HmChatGPT35Turbo\HmChatGPT35Turbo\
+build_property.ProjectDir = g:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\

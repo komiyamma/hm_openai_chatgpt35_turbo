@@ -36,6 +36,7 @@
             this.Width = 500;
             this.Height = 210;
             this.FormClosing += AppForm_FormClosing;
+            this.AutoScaleMode = AutoScaleMode.Font;
         }
 
         private void AppForm_FormClosing(object? sender, FormClosingEventArgs e)
@@ -63,8 +64,8 @@
             {
                 Multiline = true,
                 Width = this.Width,
-                Top = 24,
-                Height = 150,
+                Top = 28,
+                Height = 146,
                 ScrollBars = ScrollBars.Both,
                 Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom
             };
@@ -121,8 +122,8 @@
                 UseVisualStyleBackColor = true,
                 Top = 2,
                 Left = 2,
-                Width = 96,
-                Height = 20
+                Width = 110,
+                Height = 24
             };
 
             btnOk.Click += BtnOk_Click;
@@ -139,8 +140,8 @@
                 Text = "会話履歴クリア",
                 UseVisualStyleBackColor = true,
                 Top = 2,
-                Width = 120,
-                Height = 20,
+                Width = 130,
+                Height = 24,
                 Anchor = AnchorStyles.Right | AnchorStyles.Top
             };
 
@@ -161,9 +162,9 @@
                 Text = "中断",
                 UseVisualStyleBackColor = true,
                 Top = 2,
-                Left = 100,
-                Width = 96,
-                Height = 20
+                Left = 114,
+                Width = 110,
+                Height = 24
             };
 
             btnCancel.Enabled = false;
