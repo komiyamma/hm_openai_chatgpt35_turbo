@@ -6,6 +6,7 @@
 
         IOutputWriter output;
         IInputReader input;
+        int DisplayDpi = 96;
 
         public AppForm(string key, IOutputWriter output, IInputReader input)
         {
@@ -16,10 +17,10 @@
             try
             {
                 SetForm();
-                SetTextEdit();
                 SetOkButton();
                 SetCancelButton();
                 SetChatClearButton();
+                SetTextEdit();
                 SetOpenAI(key);
             }
             catch (Exception ex)
@@ -32,9 +33,13 @@
         // フォーム属性の設定
         void SetForm()
         {
+            if (this.DeviceDpi > 96)
+            {
+                DisplayDpi = this.DeviceDpi;
+            }
             this.Text = "*-- HmChatGPT35Turbo --*";
-            this.Width = 500;
-            this.Height = 210;
+            this.Width = (int)((500 * DisplayDpi) / 96);
+            this.Height = (int)((210 * DisplayDpi) / 96);
             this.FormClosing += AppForm_FormClosing;
             this.AutoScaleMode = AutoScaleMode.Dpi;
         }
@@ -60,14 +65,20 @@
         private TextBox? tb;
         void SetTextEdit()
         {
+            int top = 28;
+            if (btnOk != null) {
+                top = btnOk.Bottom + 4;
+            }
+
             tb = new TextBox()
             {
                 Multiline = true,
-                Width = this.Width,
-                Top = 28,
-                Height = 146,
+                Top = top,
+                Left = 2,
+                Height = this.ClientSize.Height - top,
+                Width = this.ClientSize.Width - 4,
                 ScrollBars = ScrollBars.Both,
-                Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom
             };
             tb.KeyDown += Tb_KeyDown;
             this.Controls.Add(tb);
@@ -105,7 +116,8 @@
                 if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
                 {
                     // 送信ボタンが有効なら
-                    if (btnOk != null && btnOk.Enabled) { 
+                    if (btnOk != null && btnOk.Enabled)
+                    {
                         BtnOk_Click(null, e);
                     }
                 }
@@ -122,8 +134,8 @@
                 UseVisualStyleBackColor = true,
                 Top = 2,
                 Left = 2,
-                Width = 110,
-                Height = 24
+                Width = DisplayDpi,
+                Height = (int)(DisplayDpi / 4)
             };
 
             btnOk.Click += BtnOk_Click;
@@ -140,8 +152,8 @@
                 Text = "会話履歴クリア",
                 UseVisualStyleBackColor = true,
                 Top = 2,
-                Width = 130,
-                Height = 24,
+                Width = (int)(DisplayDpi * 1.25),
+                Height = (int)(DisplayDpi / 4),
                 Anchor = AnchorStyles.Right | AnchorStyles.Top
             };
 
@@ -157,14 +169,19 @@
 
         void SetCancelButton()
         {
+            int left = 100;
+            if (btnOk != null)
+            {
+                left = btnOk.Right + 2;
+            }
             btnCancel = new Button()
             {
                 Text = "中断",
                 UseVisualStyleBackColor = true,
                 Top = 2,
-                Left = 114,
-                Width = 110,
-                Height = 24
+                Left = left,
+                Width = DisplayDpi,
+                Height = (int)(DisplayDpi / 4)
             };
 
             btnCancel.Enabled = false;
@@ -234,7 +251,8 @@
             {
                 if (ex.Message == "The operation was canceled." || ex.Message == "A task was canceled.")
                 {
-                    if (ai != null) { 
+                    if (ai != null)
+                    {
                         output.WriteLine(ai.GetAssistanceAnswerCancelMsg());
                     }
                 }
