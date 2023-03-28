@@ -41,7 +41,7 @@
             this.Width = (int)((500 * DisplayDpi) / 96);
             this.Height = (int)((210 * DisplayDpi) / 96);
             this.FormClosing += AppForm_FormClosing;
-            this.AutoScaleMode = AutoScaleMode.Dpi;
+            // this.AutoScaleMode = AutoScaleMode.Dpi;
         }
 
         private void AppForm_FormClosing(object? sender, FormClosingEventArgs e)
@@ -101,9 +101,14 @@
                     tb.Text = selectedText;
                 }
 
-                this.ActiveControl = tb;
-                tb.Focus();
-                tb.Select(tb.Text.Length, 0); // カーソルの位置を末尾に配置しておく。
+                // 見えてない時は、以下はエラーを履くので、tryでくくっておく
+                try { 
+                    this.ActiveControl = tb;
+                    tb.Focus();
+                    tb.Select(tb.Text.Length, 0); // カーソルの位置を末尾に配置しておく。
+                }
+                catch (Exception) {
+                }
             }
         }
 

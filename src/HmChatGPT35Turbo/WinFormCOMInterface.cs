@@ -17,24 +17,32 @@ namespace HmOpenAIChatGpt35Turbo
 
         public long CreateForm(string key = "")
         {
-            if (form != null)
+            try
             {
-                form.UpdateTextBox();
-            }
+                if (form != null)
+                {
+                    form.UpdateTextBox();
+                }
 
-            if (form == null || !form.Visible)
+                if (form == null || !form.Visible)
+                {
+                    output = new HmOutputWriter();
+                    input = new HmInputReader();
+                    form = new AppForm(key, output, input);
+
+                    sm.CreateSharedMemory();
+                }
+
+                form.Show();
+
+                // フォームを前に持ってくるだけ
+                form.BringToFront();
+            }
+            catch (Exception ex)
             {
-                output = new HmOutputWriter();
-                input = new HmInputReader();
-                form = new AppForm(key, output, input);
-
-                sm.CreateSharedMemory();
+                string err = ex.Message + "\r\n" + ex.StackTrace;
+                output?.WriteLine(err);
             }
-
-            form.Show();
-
-            // フォームを前に持ってくるだけ
-            form.BringToFront();
             return -1;
         }
 
