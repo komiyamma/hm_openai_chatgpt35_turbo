@@ -36,7 +36,7 @@
             this.Width = 500;
             this.Height = 210;
             this.FormClosing += AppForm_FormClosing;
-            this.AutoScaleMode = AutoScaleMode.Font;
+            this.AutoScaleMode = AutoScaleMode.Dpi;
         }
 
         private void AppForm_FormClosing(object? sender, FormClosingEventArgs e)
