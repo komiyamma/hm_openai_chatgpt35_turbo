@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "Betalgo.OpenAI.GPT3/6.8.1": {
+      "Betalgo.OpenAI.GPT3/6.8.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
@@ -250,16 +250,16 @@
     }
   },
   "libraries": {
-    "Betalgo.OpenAI.GPT3/6.8.1": {
-      "sha512": "P+sOCYfwkHbM08Bf2Y6UqDy06Blce6fUS9Ix5STCyr4LiIQ+WhpnmF5uhkAIDsAhCgBAxEkJORWniPuq1F/JPQ==",
+    "Betalgo.OpenAI.GPT3/6.8.3": {
+      "sha512": "2IiZWvWUJdsFjH8K+bV/cBqprAHlUHWrE0o7ioOUmkaXFSYdlxS+uMP5SYXOM9GLoigzNeVGDpndGox+MCbfwQ==",
       "type": "package",
-      "path": "betalgo.openai.gpt3/6.8.1",
+      "path": "betalgo.openai.gpt3/6.8.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "OpenAI-Betalgo.png",
         "Readme.md",
-        "betalgo.openai.gpt3.6.8.1.nupkg.sha512",
+        "betalgo.openai.gpt3.6.8.3.nupkg.sha512",
         "betalgo.openai.gpt3.nuspec",
         "lib/net6.0/OpenAI.GPT3.dll",
         "lib/net6.0/OpenAI.GPT3.xml",
@@ -582,7 +582,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "Betalgo.OpenAI.GPT3 >= 6.8.1",
+      "Betalgo.OpenAI.GPT3 >= 6.8.3",
       "HmNetCOM >= 2.0.7.9"
     ]
   },
@@ -592,7 +592,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.5.8",
+    "version": "1.0.6.1",
     "restore": {
       "projectUniqueName": "G:\\repogitory\\hm_openai_chatgpt35_turbo\\src\\HmChatGPT35Turbo\\HmChatGPT35Turbo.csproj",
       "projectName": "HmChatGPT35Turbo",
@@ -635,7 +635,7 @@
         "dependencies": {
           "Betalgo.OpenAI.GPT3": {
             "target": "Package",
-            "version": "[6.8.1, )"
+            "version": "[6.8.3, )"
           },
           "HmNetCOM": {
             "target": "Package",

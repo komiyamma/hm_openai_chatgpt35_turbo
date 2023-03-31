@@ -1,5 +1,5 @@
 ﻿/*--------------------------------------------
- * HmChatGPT35Turbo v1.0.5
+ * HmChatGPT35Turbo v1.0.6.1
  * 
  * Copyright (C) 2023 Akitsugu Komiyama
  * under the MIT License
@@ -15,6 +15,11 @@ SET_OPENAI_KEY:
     if ($OPENAI_KEY == "") {
         $OPENAI_KEY = ""; // 直接ここでAPIのKEYの文字列を指定しても良いですが、あまり推奨はしません。直書きする場合、このマクロを迂闊に配布して他者にAPIのキーが漏れないよう注意。
     }
+
+// モデルの指定
+SET_OPENAI_KEY:
+
+    $MODEL = "gpt-3.5-turbo"; // あなたのOpenAIアカウント内のAPIで、gpt-4 以上が使えるならば、"gpt-4"などの設定可能。しかしながら値段が10倍以上に跳ね上がるので注意。
 
 // 選択テキストの保持 ($HmSelectedTextという変数名を変更しないこと)
 SAVE_SELECTED_TEXT:
@@ -81,6 +86,6 @@ SHOW_OPENAI_FORM:
     setcomdetachmethod #CHATGPT_OBJ, "DestroyForm";
 
     // フォームの表示。
-    #_ = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY);
+    #_ = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY, $MODEL);
 
     return;

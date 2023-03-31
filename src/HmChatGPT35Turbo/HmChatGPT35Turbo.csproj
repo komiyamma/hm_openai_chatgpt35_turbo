@@ -10,9 +10,9 @@
     <BaseOutputPath>bin\$(PlatformTarget)</BaseOutputPath>
     <Authors>Akitsugu Komiyama</Authors>
     <Copyright>$(Authors)</Copyright>
-    <AssemblyVersion>1.0.5.8</AssemblyVersion>
-    <FileVersion>1.0.5.8</FileVersion>
-    <Version>1.0.5.8</Version>
+    <AssemblyVersion>1.0.6.1</AssemblyVersion>
+    <FileVersion>1.0.6.1</FileVersion>
+    <Version>1.0.6.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Platform)'=='x86'">
@@ -42,7 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Betalgo.OpenAI.GPT3" Version="6.8.1" />
+    <PackageReference Include="Betalgo.OpenAI.GPT3" Version="6.8.3" />
     <PackageReference Include="HmNetCOM" Version="2.0.7.9" />
   </ItemGroup>
 

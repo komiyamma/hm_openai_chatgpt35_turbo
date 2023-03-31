@@ -7,12 +7,14 @@
         IOutputWriter output;
         IInputReader input;
         int DisplayDpi = 96;
+        string model = "";
 
-        public AppForm(string key, IOutputWriter output, IInputReader input)
+        public AppForm(string key, string model, IOutputWriter output, IInputReader input)
         {
             // 「入力」や「出力」の対象を外部から受け取り
             this.output = output;
             this.input = input;
+            this.model = model;
 
             try
             {
@@ -344,7 +346,7 @@
         {
             try
             {
-                ai = new OpenAIChatMain(key, output);
+                ai = new OpenAIChatMain(key, model, output);
             }
             catch (Exception ex)
             {

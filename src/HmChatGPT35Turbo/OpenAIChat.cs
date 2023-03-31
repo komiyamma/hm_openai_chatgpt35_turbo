@@ -29,10 +29,19 @@ namespace HmOpenAIChatGpt35Turbo
         static string? OpenAIKeyOverWriteVariable = null; // 直接APIの値を上書き指定している場合(マクロなどからの直接の引き渡し)
         const string ErrorMessageNoOpenAIKey = OpenAIKeyEnvironmentVariableName + "キーが環境変数にありません。:" + NewLine;
 
-        public OpenAIChatMain(string key, IOutputWriter output)
+        string model = "";
+
+        public OpenAIChatMain(string key, string model, IOutputWriter output)
         {
             // 出力対象のDI用
             this.output = output;
+
+            this.model = model;
+            if (this.model == "")
+            {
+                this.model = Models.ChatGpt3_5Turbo;
+                output.WriteLine(this.model);
+            }
 
             // とりあえず代入。エラーならChatGPTの方が言ってくれる。
             if (key.Length > 0)
@@ -104,7 +113,7 @@ namespace HmOpenAIChatGpt35Turbo
         }
 
         // チャットのエンジンやオプション。過去のチャット内容なども渡す。
-        static IAsyncEnumerable<ChatCompletionCreateResponse> ReBuildPastChatContents(CancellationToken ct)
+        IAsyncEnumerable<ChatCompletionCreateResponse> ReBuildPastChatContents(CancellationToken ct)
         {
             var key = GetOpenAIKey();
             if (key == null)
@@ -127,7 +136,7 @@ namespace HmOpenAIChatGpt35Turbo
             var options = new ChatCompletionCreateRequest
             {
                 Messages = messageList,
-                Model = Models.ChatGpt3_5Turbo,
+                Model = this.model,
                 MaxTokens = 2000
             };
 
