@@ -40,7 +40,7 @@ namespace HmOpenAIChatGpt35Turbo
             if (this.model == "")
             {
                 this.model = Models.ChatGpt3_5Turbo;
-                output.WriteLine(this.model);
+                // output.WriteLine(this.model);
             }
 
             // とりあえず代入。エラーならChatGPTの方が言ってくれる。
