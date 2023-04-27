@@ -1,4 +1,6 @@
-﻿namespace HmOpenAIChatGpt35Turbo
+﻿using HmNetCOM;
+
+namespace HmOpenAIChatGpt35Turbo
 {
     class AppForm : Form
     {
@@ -8,6 +10,7 @@
         IInputReader input;
         int DisplayDpi = 96;
         string model = "";
+        int nTopMost = 0;
 
         public AppForm(string key, string model, IOutputWriter output, IInputReader input)
         {
@@ -18,11 +21,22 @@
 
             try
             {
+                int isTopMostType = (int)(dynamic)(Hm.Macro.Var["#TOPMOST"]);
+                if (isTopMostType > 0)
+                {
+                    nTopMost = isTopMostType;
+                }
+            }
+            catch (Exception) { }
+
+            try
+            {
                 SetForm();
                 SetOkButton();
                 SetCancelButton();
                 SetChatClearButton();
                 SetTextEdit();
+                SetCheckBox();
                 SetOpenAI(key);
             }
             catch (Exception ex)
@@ -39,6 +53,7 @@
             {
                 DisplayDpi = this.DeviceDpi;
             }
+
             this.Text = "*-- HmChatGPT35Turbo --*";
             this.Width = (int)((500 * DisplayDpi) / 96);
             this.Height = (int)((210 * DisplayDpi) / 96);
@@ -104,10 +119,21 @@
                 }
 
                 // 見えてない時は、以下はエラーを履くので、tryでくくっておく
-                try { 
+                try {
+                    this.WindowState = FormWindowState.Normal;
+
                     this.ActiveControl = tb;
                     tb.Focus();
                     tb.Select(tb.Text.Length, 0); // カーソルの位置を末尾に配置しておく。
+                    // このフォームウィンドウのフォーカスをアクティブにする。
+                    // 秀丸に瞬間アクティブを取られるかもしれないが、0.5秒間に２度トライする。
+                    Task.Run(() =>
+                    {
+                        Thread.Sleep(250);
+                        this.Activate();
+                        Thread.Sleep(250);
+                        this.Activate();
+                    });
                 }
                 catch (Exception) {
                 }
@@ -337,6 +363,41 @@
             {
             }
         }
+
+        CheckBox cb;
+
+        void SetCheckBox()
+        {
+            if (btnCancel != null) { 
+                cb = new CheckBox();
+                cb.Text = "常に手前";
+                cb.Left = btnCancel.Right + (int)(10*DisplayDpi/96);
+                cb.Height = btnCancel.Height;
+                cb.Top = btnCancel.Top;
+                cb.Width = (int)(btnCancel.Width);
+                cb.CheckAlign = ContentAlignment.MiddleLeft;
+                cb.TextAlign = ContentAlignment.MiddleLeft;
+                cb.CheckedChanged += Cb_CheckedChanged;
+                if (nTopMost > 0)
+                {
+                    cb.Checked = true;
+                }
+
+                this.Controls.Add(cb);
+            }
+        }
+
+        private void Cb_CheckedChanged(object? sender, EventArgs e)
+        {
+            if (cb.Checked)
+            {
+                this.TopMost = true;
+            } else
+            {
+                this.TopMost = false;
+            }
+        }
+
 
         // aiの処理。キレイには切り分けられてないが、Modelに近い。
         OpenAIChatMain? ai;

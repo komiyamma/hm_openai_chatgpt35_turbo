@@ -1,5 +1,5 @@
 ﻿/*--------------------------------------------
- * HmChatGPT35Turbo v1.0.6.1
+ * HmChatGPT35Turbo v1.0.7.1
  * 
  * Copyright (C) 2023 Akitsugu Komiyama
  * under the MIT License
@@ -20,6 +20,12 @@ SET_OPENAI_KEY:
 SET_OPENAI_KEY:
 
     $MODEL = "gpt-3.5-turbo"; // あなたのOpenAIアカウント内のAPIで、gpt-4 以上が使えるならば、"gpt-4"などの設定可能。しかしながら値段が10倍以上に跳ね上がるので注意。
+
+
+SET_TOPMOST_TYPE:
+
+    #TOPMOST = 0; // 最初の起動時に「常に手前」にチェックが付くかどうか。1:チェックが付く。0:チェックは付かない。
+
 
 // 選択テキストの保持 ($HmSelectedTextという変数名を変更しないこと)
 SAVE_SELECTED_TEXT:
