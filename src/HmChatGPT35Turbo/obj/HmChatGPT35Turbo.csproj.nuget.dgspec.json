@@ -46,9 +46,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
-            "Betalgo.OpenAI.GPT3": {
+            "Betalgo.OpenAI": {
               "target": "Package",
-              "version": "[6.8.3, )"
+              "version": "[6.8.5, )"
             },
             "HmNetCOM": {
               "target": "Package",
