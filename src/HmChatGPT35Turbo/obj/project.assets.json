@@ -2,19 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "Betalgo.OpenAI/6.8.5": {
+      "Betalgo.OpenAI/7.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0"
         },
         "compile": {
-          "lib/net6.0/OpenAI.GPT3.dll": {
+          "lib/net6.0/OpenAI.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/OpenAI.GPT3.dll": {
+          "lib/net6.0/OpenAI.dll": {
             "related": ".xml"
           }
         }
@@ -250,21 +250,23 @@
     }
   },
   "libraries": {
-    "Betalgo.OpenAI/6.8.5": {
-      "sha512": "IKqOjLhk/G4XHCgTPp+OURgmoy2blPqWsWL4MO6EZte+hbDzT2NN9imOSFEuw9OavuGsVvdtaMeVo9ij+eop0Q==",
+    "Betalgo.OpenAI/7.0.0": {
+      "sha512": "6StzxEQmHJjp6oS5Vkhj5RN2KD94MqXWR4FACLCFSaz74v0nzh6SvUE/xVgh6crJRjAxrM36yKp/sA0KllW6vg==",
       "type": "package",
-      "path": "betalgo.openai/6.8.5",
+      "path": "betalgo.openai/7.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "OpenAI-Betalgo.png",
         "Readme.md",
-        "betalgo.openai.6.8.5.nupkg.sha512",
+        "betalgo.openai.7.0.0.nupkg.sha512",
         "betalgo.openai.nuspec",
-        "lib/net6.0/OpenAI.GPT3.dll",
-        "lib/net6.0/OpenAI.GPT3.xml",
-        "lib/netstandard2.0/OpenAI.GPT3.dll",
-        "lib/netstandard2.0/OpenAI.GPT3.xml"
+        "lib/net6.0/OpenAI.dll",
+        "lib/net6.0/OpenAI.xml",
+        "lib/net7.0/OpenAI.dll",
+        "lib/net7.0/OpenAI.xml",
+        "lib/netstandard2.0/OpenAI.dll",
+        "lib/netstandard2.0/OpenAI.xml"
       ]
     },
     "HmNetCOM/2.0.7.9": {
@@ -582,7 +584,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "Betalgo.OpenAI >= 6.8.5",
+      "Betalgo.OpenAI >= 7.0.0",
       "HmNetCOM >= 2.0.7.9"
     ]
   },
@@ -635,7 +637,7 @@
         "dependencies": {
           "Betalgo.OpenAI": {
             "target": "Package",
-            "version": "[6.8.5, )"
+            "version": "[7.0.0, )"
           },
           "HmNetCOM": {
             "target": "Package",
@@ -661,7 +663,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

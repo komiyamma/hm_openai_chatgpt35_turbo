@@ -126,7 +126,6 @@ G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x86\Release\net
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x86\Release\net6.0-windows\HmChatGPT35Turbo.deps.json
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x86\Release\net6.0-windows\HmChatGPT35Turbo.runtimeconfig.json
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x86\Release\net6.0-windows\HmChatGPT35Turbo.dll
-G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x86\Release\net6.0-windows\OpenAI.GPT3.dll
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x86\Release\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x86\Release\net6.0-windows\Microsoft.Extensions.Configuration.Binder.dll
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x86\Release\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
@@ -149,3 +148,4 @@ G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\refint\HmChatGPT35Turbo.dll
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\HmChatGPT35Turbo.genruntimeconfig.cache
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\ref\HmChatGPT35Turbo.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x86\Release\net6.0-windows\OpenAI.dll

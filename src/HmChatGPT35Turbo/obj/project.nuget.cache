@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4IxlWP5G1t/twZUusUjc9t1QIbHtjVIDp6P9N3EbEEsF64FconZ7dtQFJOVfSfuDXrkQwEe8Wj4UfoGIq0biUw==",
+  "dgSpecHash": "JPhKo706ioDkGMBAtYavGb9GZ07lAm3tUQRWWK1O54TCeLt7l3oDBoapiTFcMVE6bxYq+nMY1dpiJ06Q/9J6ug==",
   "success": true,
   "projectFilePath": "G:\\repogitory\\hm_openai_chatgpt35_turbo\\src\\HmChatGPT35Turbo\\HmChatGPT35Turbo.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\master\\.nuget\\packages\\betalgo.openai\\6.8.5\\betalgo.openai.6.8.5.nupkg.sha512",
+    "C:\\Users\\master\\.nuget\\packages\\betalgo.openai\\7.0.0\\betalgo.openai.7.0.0.nupkg.sha512",
     "C:\\Users\\master\\.nuget\\packages\\hmnetcom\\2.0.7.9\\hmnetcom.2.0.7.9.nupkg.sha512",
     "C:\\Users\\master\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\master\\.nuget\\packages\\microsoft.extensions.configuration.binder\\6.0.0\\microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",
