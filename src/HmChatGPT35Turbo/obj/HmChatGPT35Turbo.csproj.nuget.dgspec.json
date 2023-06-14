@@ -5,7 +5,7 @@
   },
   "projects": {
     "G:\\repogitory\\hm_openai_chatgpt35_turbo\\src\\HmChatGPT35Turbo\\HmChatGPT35Turbo.csproj": {
-      "version": "1.0.7.1",
+      "version": "1.0.7.2",
       "restore": {
         "projectUniqueName": "G:\\repogitory\\hm_openai_chatgpt35_turbo\\src\\HmChatGPT35Turbo\\HmChatGPT35Turbo.csproj",
         "projectName": "HmChatGPT35Turbo",
@@ -74,7 +74,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

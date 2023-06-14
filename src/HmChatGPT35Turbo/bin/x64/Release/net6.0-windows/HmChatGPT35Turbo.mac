@@ -1,5 +1,5 @@
 ﻿/*--------------------------------------------
- * HmChatGPT35Turbo v1.0.7.1
+ * HmChatGPT35Turbo v1.0.7.2
  * 
  * Copyright (C) 2023 Akitsugu Komiyama
  * under the MIT License
@@ -17,9 +17,16 @@ SET_OPENAI_KEY:
     }
 
 // モデルの指定
-SET_OPENAI_KEY:
+SET_MODEL:
 
     $MODEL = "gpt-3.5-turbo"; // あなたのOpenAIアカウント内のAPIで、gpt-4 以上が使えるならば、"gpt-4"などの設定可能。しかしながら値段が10倍以上に跳ね上がるので注意。
+                              // 最大トークンを大きくしたいなら gpt-3.5-turbo-16k などとすれば4倍になる。この場合は料金は2倍ほどで済むので格安具合をある程度維持できる。
+
+
+SET_MAXTOKENS:
+
+    #MAXTOKENS = 2000;    // この数値は概ね 使用対象のmodelの最大トークンの半分程度を使用するのが望ましい。
+                          // 「gpt-3.5-turbo なら 2000」、「gpt-3.5-turbo-16k なら 8000」、「gpt-4 なら 4000」、「gpt-4-32k なら 16000」といった具合。
 
 
 SET_TOPMOST_TYPE:
@@ -92,6 +99,6 @@ SHOW_OPENAI_FORM:
     setcomdetachmethod #CHATGPT_OBJ, "DestroyForm";
 
     // フォームの表示。
-    #_ = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY, $MODEL);
+    #_ = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY, $MODEL, #MAXTOKENS);
 
     return;

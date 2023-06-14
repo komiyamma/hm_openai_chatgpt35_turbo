@@ -30,8 +30,9 @@ namespace HmOpenAIChatGpt35Turbo
         const string ErrorMessageNoOpenAIKey = OpenAIKeyEnvironmentVariableName + "キーが環境変数にありません。:" + NewLine;
 
         string model = "";
+        int iMaxTokens;
 
-        public OpenAIChatMain(string key, string model, IOutputWriter output)
+        public OpenAIChatMain(string key, string model, int maxtokens, IOutputWriter output)
         {
             // 出力対象のDI用
             this.output = output;
@@ -42,6 +43,7 @@ namespace HmOpenAIChatGpt35Turbo
                 this.model = Models.ChatGpt3_5Turbo;
                 // output.WriteLine(this.model);
             }
+            this.iMaxTokens = maxtokens;
 
             // とりあえず代入。エラーならChatGPTの方が言ってくれる。
             if (key.Length > 0)
@@ -137,7 +139,7 @@ namespace HmOpenAIChatGpt35Turbo
             {
                 Messages = messageList,
                 Model = this.model,
-                MaxTokens = 2000
+                MaxTokens = iMaxTokens
             };
 
             // ストリームとして会話モードを確率する。ストリームにすると解答が１文字ずつ順次表示される。

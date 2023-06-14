@@ -11,13 +11,16 @@ namespace HmOpenAIChatGpt35Turbo
         int DisplayDpi = 96;
         string model = "";
         int nTopMost = 0;
+        int iMaxTokens = 2000;
 
-        public AppForm(string key, string model, IOutputWriter output, IInputReader input)
+        public AppForm(string key, string model, int maxtokens, IOutputWriter output, IInputReader input)
         {
             // 「入力」や「出力」の対象を外部から受け取り
             this.output = output;
             this.input = input;
             this.model = model;
+
+            this.iMaxTokens = maxtokens;
 
             try
             {
@@ -407,7 +410,7 @@ namespace HmOpenAIChatGpt35Turbo
         {
             try
             {
-                ai = new OpenAIChatMain(key, model, output);
+                ai = new OpenAIChatMain(key, model, iMaxTokens, output);
             }
             catch (Exception ex)
             {

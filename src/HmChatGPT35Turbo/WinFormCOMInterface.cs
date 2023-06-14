@@ -15,7 +15,7 @@ namespace HmOpenAIChatGpt35Turbo
 
         HmChatGPT35TurboSharedMemory sm = new HmChatGPT35TurboSharedMemory();
 
-        public long CreateForm(string key = "", string model="")
+        public long CreateForm(string key = "", string model="", int maxtokens = 2000)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace HmOpenAIChatGpt35Turbo
                 {
                     output = new HmOutputWriter();
                     input = new HmInputReader();
-                    form = new AppForm(key, model, output, input);
+                    form = new AppForm(key, model, maxtokens, output, input);
 
                     sm.CreateSharedMemory();
                 }
