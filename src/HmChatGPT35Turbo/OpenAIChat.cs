@@ -40,7 +40,7 @@ namespace HmOpenAIChatGpt35Turbo
             this.model = model;
             if (this.model == "")
             {
-                this.model = Models.ChatGpt3_5Turbo;
+                this.model = Models.Gpt_3_5_Turbo;
                 // output.WriteLine(this.model);
             }
             this.iMaxTokens = maxtokens;

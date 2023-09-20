@@ -367,7 +367,7 @@ namespace HmOpenAIChatGpt35Turbo
             }
         }
 
-        CheckBox cb;
+        CheckBox? cb;
 
         void SetCheckBox()
         {
@@ -392,12 +392,16 @@ namespace HmOpenAIChatGpt35Turbo
 
         private void Cb_CheckedChanged(object? sender, EventArgs e)
         {
-            if (cb.Checked)
+            if (cb != null)
             {
-                this.TopMost = true;
-            } else
-            {
-                this.TopMost = false;
+                if (cb.Checked)
+                {
+                    this.TopMost = true;
+                }
+                else
+                {
+                    this.TopMost = false;
+                }
             }
         }
 
