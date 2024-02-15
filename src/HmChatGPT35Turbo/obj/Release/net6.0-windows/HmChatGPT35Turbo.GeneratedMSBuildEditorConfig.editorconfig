@@ -15,3 +15,5 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HmChatGPT35Turbo
 build_property.ProjectDir = G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\
+build_property.EnableComHosting = true
+build_property.EnableGeneratedComInterfaceComImportInterop = 
