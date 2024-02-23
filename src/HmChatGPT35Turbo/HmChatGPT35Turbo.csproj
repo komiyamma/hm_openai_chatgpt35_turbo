@@ -6,7 +6,7 @@
     <EnableComHosting>true</EnableComHosting>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <BaseOutputPath>bin\$(PlatformTarget)</BaseOutputPath>
     <Authors>Akitsugu Komiyama</Authors>
     <Copyright>$(Authors)</Copyright>
@@ -42,7 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Betalgo.OpenAI" Version="7.1.5" />
+    <PackageReference Include="Betalgo.OpenAI" Version="7.4.3" />
     <PackageReference Include="HmNetCOM" Version="2.0.7.9" />
   </ItemGroup>
 

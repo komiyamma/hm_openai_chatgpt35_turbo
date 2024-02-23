@@ -142,10 +142,10 @@ G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\HmChatGPT35Turbo.AssemblyInfoInputs.cache
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\HmChatGPT35Turbo.AssemblyInfo.cs
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\HmChatGPT35Turbo.csproj.CoreCompileInputs.cache
-G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\HmChatGPT35Turbo.csproj.CopyComplete
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\HmChatGPT35Turbo.dll
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\refint\HmChatGPT35Turbo.dll
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\HmChatGPT35Turbo.genruntimeconfig.cache
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\ref\HmChatGPT35Turbo.dll
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x86\Release\net6.0-windows\OpenAI.dll
 G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\bin\x64\Release\net6.0-windows\OpenAI.dll
+G:\repogitory\hm_openai_chatgpt35_turbo\src\HmChatGPT35Turbo\obj\Release\net6.0-windows\HmChatGP.9246C466.Up2Date

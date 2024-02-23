@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Betalgo.OpenAI/7.0.0": {
+      "Betalgo.OpenAI/7.4.3": {
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/OpenAI.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.0.0"
+            "assemblyVersion": "7.4.3.0",
+            "fileVersion": "7.4.3.0"
           }
         }
       },
@@ -158,12 +158,12 @@
     }
   },
   "libraries": {
-    "Betalgo.OpenAI/7.0.0": {
+    "Betalgo.OpenAI/7.4.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6StzxEQmHJjp6oS5Vkhj5RN2KD94MqXWR4FACLCFSaz74v0nzh6SvUE/xVgh6crJRjAxrM36yKp/sA0KllW6vg==",
-      "path": "betalgo.openai/7.0.0",
-      "hashPath": "betalgo.openai.7.0.0.nupkg.sha512"
+      "sha512": "sha512-IVa09jKlDY1M+K/OxLS91ygNAJMNwLlP1HJ22PXv3ZJ0OTeJ9uy4X4yDEh2SgnLLm2mdT3gr3B7sITyikhh8xA==",
+      "path": "betalgo.openai/7.4.3",
+      "hashPath": "betalgo.openai.7.4.3.nupkg.sha512"
     },
     "HmNetCOM/2.0.7.9": {
       "type": "package",
