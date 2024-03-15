@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Akitsugu Komiyama")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.7.3")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.7.3+d5ba437b469b5c17e5fddd5b198403eecfefcc7a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.7.3+631e9d866f55c8ba77fc8fa1511d298cec2a747d")]
 [assembly: System.Reflection.AssemblyProductAttribute("HmChatGPT35Turbo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HmChatGPT35Turbo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.7.3")]
