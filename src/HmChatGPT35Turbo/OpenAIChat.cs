@@ -143,7 +143,7 @@ namespace HmOpenAIChatGpt35Turbo
             };
 
             // ストリームとして会話モードを確率する。ストリームにすると解答が１文字ずつ順次表示される。
-            var completionResult = openAiService.ChatCompletion.CreateCompletionAsStream(options, null, ct);
+            var completionResult = openAiService.ChatCompletion.CreateCompletionAsStream(options, null, false, ct);
             return completionResult;
         }
 

@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "Betalgo.OpenAI/7.4.3": {
+      "Betalgo.OpenAI/7.4.6": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
@@ -250,16 +250,16 @@
     }
   },
   "libraries": {
-    "Betalgo.OpenAI/7.4.3": {
-      "sha512": "IVa09jKlDY1M+K/OxLS91ygNAJMNwLlP1HJ22PXv3ZJ0OTeJ9uy4X4yDEh2SgnLLm2mdT3gr3B7sITyikhh8xA==",
+    "Betalgo.OpenAI/7.4.6": {
+      "sha512": "sC9/fEv9RAa8oH9Qss1qVBJ57wkolxoxgctpqmETk3ULujWzGMGRNeeU/azmgV5G5FS7NOOguH8Tc4b+MDtBdw==",
       "type": "package",
-      "path": "betalgo.openai/7.4.3",
+      "path": "betalgo.openai/7.4.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "OpenAI-Betalgo.png",
         "Readme.md",
-        "betalgo.openai.7.4.3.nupkg.sha512",
+        "betalgo.openai.7.4.6.nupkg.sha512",
         "betalgo.openai.nuspec",
         "lib/net6.0/OpenAI.dll",
         "lib/net6.0/OpenAI.xml",
@@ -584,7 +584,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "Betalgo.OpenAI >= 7.4.3",
+      "Betalgo.OpenAI >= 7.4.6",
       "HmNetCOM >= 2.0.7.9"
     ]
   },
@@ -640,7 +640,7 @@
         "dependencies": {
           "Betalgo.OpenAI": {
             "target": "Package",
-            "version": "[7.4.3, )"
+            "version": "[7.4.6, )"
           },
           "HmNetCOM": {
             "target": "Package",
@@ -666,7 +666,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

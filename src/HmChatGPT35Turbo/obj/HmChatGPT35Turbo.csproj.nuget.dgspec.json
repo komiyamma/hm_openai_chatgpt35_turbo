@@ -52,7 +52,7 @@
           "dependencies": {
             "Betalgo.OpenAI": {
               "target": "Package",
-              "version": "[7.4.3, )"
+              "version": "[7.4.6, )"
             },
             "HmNetCOM": {
               "target": "Package",
@@ -78,7 +78,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
