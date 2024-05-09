@@ -15,7 +15,7 @@ namespace HmOpenAIChatGpt35Turbo
 
         HmChatGPT35TurboSharedMemory sm = new HmChatGPT35TurboSharedMemory();
 
-        public long CreateForm(string key = "", string model="", int maxtokens = 2000)
+        public long CreateForm(string key = "", string model = "", int maxtokens = 2000)
         {
             try
             {
@@ -73,12 +73,31 @@ namespace HmOpenAIChatGpt35Turbo
             try
             {
                 // 新規にメモリマップを作成して、そこに現在の秀丸ハンドルを数値として入れておく
-                share_mem = MemoryMappedFile.CreateNew("HmChatGPT35TurboSharedMem", 8);
-                MemoryMappedViewAccessor accessor = share_mem.CreateViewAccessor();
-                accessor.Write(0, (long)Hm.WindowHandle);
-                accessor.Dispose();
+                if (share_mem == null)
+                {
+                    share_mem = MemoryMappedFile.CreateNew("HmChatGPT35TurboSharedMem", 8);
+                }
             }
-            catch (Exception) { }
+            catch (Exception e)
+            {
+            }
+
+            try
+            {
+                using (var share_mem = MemoryMappedFile.OpenExisting("HmChatGPT35TurboSharedMem"))
+                {
+                    if (share_mem != null)
+                    {
+                        using (var accessor = share_mem.CreateViewAccessor())
+                        {
+                            accessor.Write(0, (long)Hm.WindowHandle);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+            }
         }
 
         public long GetSharedMemory()
@@ -86,13 +105,17 @@ namespace HmOpenAIChatGpt35Turbo
             long value = 0;
             try
             {
-                // (主に)違うプロセスからメモリマップの数値を読み込む
-                share_mem = MemoryMappedFile.OpenExisting("HmChatGPT35TurboSharedMem");
-                MemoryMappedViewAccessor accessor = share_mem.CreateViewAccessor();
-                value = accessor.ReadInt64(0);
-                accessor.Dispose();
+                using (var share_mem = MemoryMappedFile.OpenExisting("HmChatGPT35TurboSharedMem"))
+                {
+                    using (var accessor = share_mem.CreateViewAccessor())
+                    {
+                        value = accessor.ReadInt64(0);
+                    }
+                }
             }
-            catch (Exception) { }
+            catch (Exception)
+            {
+            }
 
             return value;
         }
@@ -104,14 +127,27 @@ namespace HmOpenAIChatGpt35Turbo
                 if (share_mem != null)
                 {
                     // メモリマップを削除。
-                    MemoryMappedViewAccessor accessor = share_mem.CreateViewAccessor();
-                    accessor.Write(0, (long)0);
-                    accessor.Dispose();
+                    using (var accessor = share_mem.CreateViewAccessor())
+                    {
+                        accessor.Write(0, (long)0);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+            try
+            {
+                if (share_mem != null)
+                {
                     share_mem.Dispose();
                     share_mem = null;
                 }
             }
-            catch (Exception) { }
+            catch (Exception)
+            {
+            }
         }
 
 
