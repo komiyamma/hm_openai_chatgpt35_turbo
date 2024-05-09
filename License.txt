@@ -1,6 +1,6 @@
 - HmChatGPT35Turbo
 
-  Copyright (C) 2023 Akitsugu Komiyama
+  Copyright (C) 2023-2024 Akitsugu Komiyama
 
 
 The MIT License (MIT)
@@ -31,9 +31,9 @@ SOFTWARE.
 
 
 
-- Betalgo.OpenAI.GPT3
+- Betalgo.OpenAI
 
-  Copyright (c) 2022 Betalgo
+  Copyright (c) 2022-2024 Betalgo
 
 
 The MIT License (MIT)

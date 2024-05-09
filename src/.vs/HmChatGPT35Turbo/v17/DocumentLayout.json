@@ -49,6 +49,10 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "WinFormCOMInterface.cs",
@@ -58,12 +62,7 @@
               "RelativeToolTip": "HmChatGPT35Turbo\\WinFormCOMInterface.cs",
               "ViewState": "AQIAAEIAAAAAAAAAAAAIwEkAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T15:53:27.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+              "WhenOpened": "2024-05-09T15:53:27.437Z"
             },
             {
               "$type": "Document",
