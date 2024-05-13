@@ -19,13 +19,14 @@ SET_OPENAI_KEY:
 // モデルの指定
 SET_MODEL:
 
-    $MODEL = "gpt-3.5-turbo"; // "gpt-4-turbo"などの設定可能。しかしながら値段が15倍以上に跳ね上がるので注意。
+    $MODEL = "gpt-3.5-turbo"; // "gpt-4o"などの設定可能。しかしながら値段が10倍に跳ね上がるので注意。
+                              // "gpt-4-turbo" は、"gpt-4o" より「低性能で高価格」なので、利用価値がないので注意
 
 
 SET_MAXTOKENS:
 
     #MAXTOKENS = 4000;    // この数値は概ね 使用対象のmodelの最大トークンの半分程度を使用するのが望ましい。
-                          // 「gpt-3.5-turbo なら 2000」「gpt-4-turbo なら 4000」が目安
+                          // 「gpt-3.5-turbo なら 2000」「gpt-4o なら 4000」が目安
 
 
 SET_TOPMOST_TYPE:
