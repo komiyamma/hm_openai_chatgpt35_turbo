@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "Betalgo.OpenAI/7.4.6": {
+      "Betalgo.OpenAI/8.2.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
@@ -250,21 +250,23 @@
     }
   },
   "libraries": {
-    "Betalgo.OpenAI/7.4.6": {
-      "sha512": "sC9/fEv9RAa8oH9Qss1qVBJ57wkolxoxgctpqmETk3ULujWzGMGRNeeU/azmgV5G5FS7NOOguH8Tc4b+MDtBdw==",
+    "Betalgo.OpenAI/8.2.2": {
+      "sha512": "7qyM/H8UO0DTFWDX779JRr+sVGn8jyb5/QQEbSPys7uNr5lWvtWic7d4G3JoruKQ1/QTqZBhDDeDZ93nWSYxpQ==",
       "type": "package",
-      "path": "betalgo.openai/7.4.6",
+      "path": "betalgo.openai/8.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "OpenAI-Betalgo.png",
         "Readme.md",
-        "betalgo.openai.7.4.6.nupkg.sha512",
+        "betalgo.openai.8.2.2.nupkg.sha512",
         "betalgo.openai.nuspec",
         "lib/net6.0/OpenAI.dll",
         "lib/net6.0/OpenAI.xml",
         "lib/net7.0/OpenAI.dll",
         "lib/net7.0/OpenAI.xml",
+        "lib/net8.0/OpenAI.dll",
+        "lib/net8.0/OpenAI.xml",
         "lib/netstandard2.0/OpenAI.dll",
         "lib/netstandard2.0/OpenAI.xml"
       ]
@@ -584,7 +586,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "Betalgo.OpenAI >= 7.4.6",
+      "Betalgo.OpenAI >= 8.2.2",
       "HmNetCOM >= 2.0.7.9"
     ]
   },
@@ -593,7 +595,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.7.5",
+    "version": "1.0.7.6",
     "restore": {
       "projectUniqueName": "G:\\repogitory\\hm_openai_chatgpt35_turbo\\src\\HmChatGPT35Turbo\\HmChatGPT35Turbo.csproj",
       "projectName": "HmChatGPT35Turbo",
@@ -640,7 +642,7 @@
         "dependencies": {
           "Betalgo.OpenAI": {
             "target": "Package",
-            "version": "[7.4.6, )"
+            "version": "[8.2.2, )"
           },
           "HmNetCOM": {
             "target": "Package",
@@ -666,7 +668,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
       }
     }
   }
