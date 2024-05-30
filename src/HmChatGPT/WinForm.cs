@@ -12,25 +12,18 @@ namespace HmOpenAIChatGpt
         string model = "";
         int nTopMost = 0;
         int iMaxTokens = 2000;
+        int iAutoMsgListRemove = 1;
 
-        public AppForm(string key, string model, int maxtokens, IOutputWriter output, IInputReader input)
+        public AppForm(string key, string model, int maxtokens, int topmost, int remove_auto_messagelist, IInputReader input, IOutputWriter output)
         {
             // 「入力」や「出力」の対象を外部から受け取り
             this.output = output;
             this.input = input;
             this.model = model;
+            this.iAutoMsgListRemove = remove_auto_messagelist;
 
             this.iMaxTokens = maxtokens;
-
-            try
-            {
-                int isTopMostType = (int)(dynamic)(Hm.Macro.Var["#TOPMOST"]);
-                if (isTopMostType > 0)
-                {
-                    nTopMost = isTopMostType;
-                }
-            }
-            catch (Exception) { }
+            this.nTopMost = topmost;
 
             try
             {
@@ -80,6 +73,12 @@ namespace HmOpenAIChatGpt
             {
                 // ここは必ず例外でるので不要。
             }
+
+            try
+            {
+                // メッセージリストのオートリムーバーのキャンセルをしておく。(うーんぐだぐだだなー)
+                OpenAIChatMain.CancelMessageListCancelToken();
+            } catch(Exception) { }
         }
 
         private TextBox? tb;
@@ -414,7 +413,7 @@ namespace HmOpenAIChatGpt
         {
             try
             {
-                ai = new OpenAIChatMain(key, model, iMaxTokens, output);
+                ai = new OpenAIChatMain(key, model, iMaxTokens, output, iAutoMsgListRemove);
             }
             catch (Exception ex)
             {

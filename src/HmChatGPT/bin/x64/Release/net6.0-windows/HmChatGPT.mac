@@ -1,5 +1,5 @@
 ﻿/*--------------------------------------------
- * HmChatGPT v1.0.7.7
+ * HmChatGPT v1.0.7.8
  * 
  * Copyright (C) 2023-2024 Akitsugu Komiyama
  * under the MIT License
@@ -32,6 +32,18 @@ SET_MAXTOKENS:
 SET_TOPMOST_TYPE:
 
     #TOPMOST = 0; // 最初の起動時に「常に手前」にチェックが付くかどうか。1:チェックが付く。0:チェックは付かない。
+
+
+
+SET_AUTO_REMOVE_HISTORY:
+
+    #REMOVE_AUTO_HISTORY = 1;  // 会話履歴の自動削除モード
+                               // 「最後のHmChatGPTの回答」から、５分間経過すると、ChatGPTとのやり取り履歴の「古い方」から忘れるモード＝「会話履歴の自動削除モード」に突入する。
+                               // 即ち「しばらく使っていない」と「会話履歴の自動削除モード」となる。
+                               // このモードでは、１分間毎に「質問」と「回答」を１セットと考えて１セットずつ忘れる
+                               // これにより、しばらくHmChatGPTをさわっていないまま放置していれば、「履歴」が自動的にどんどん古い方から削除されるため、
+                               // お金の大幅な節約に繋がる。
+                               // (うっかり履歴がたまったまま、履歴とは無関係な質問をする、といったことが自動的に防止できるため)
 
 
 // 選択テキストの保持 ($HmSelectedTextという変数名を変更しないこと)
@@ -99,6 +111,6 @@ SHOW_OPENAI_FORM:
     setcomdetachmethod #CHATGPT_OBJ, "DestroyForm";
 
     // フォームの表示。
-    #_ = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY, $MODEL, #MAXTOKENS);
+    #_ = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY, $MODEL, #MAXTOKENS, #TOPMOST, #REMOVE_AUTO_HISTORY);
 
     return;

@@ -15,7 +15,7 @@ namespace HmOpenAIChatGpt
 
         HmChatGPTSharedMemory sm = new HmChatGPTSharedMemory();
 
-        public long CreateForm(string key = "", string model = "", int maxtokens = 2000)
+        public long CreateForm(string key = "", string model = "", int maxtokens = 2000, int topmost=0, int remove_auto_messagelist = 1)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace HmOpenAIChatGpt
                 {
                     output = new HmOutputWriter();
                     input = new HmInputReader();
-                    form = new AppForm(key, model, maxtokens, output, input);
+                    form = new AppForm(key, model, maxtokens, topmost, remove_auto_messagelist, input, output);
 
                     sm.CreateSharedMemory();
                 }

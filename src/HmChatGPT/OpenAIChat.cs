@@ -18,7 +18,7 @@ namespace HmOpenAIChatGpt
         public OpenAIServiceNotFoundException(string msg) : base(msg) { }
     }
 
-    class OpenAIChatMain
+    partial class OpenAIChatMain
     {
         // 出力対象のDI用
         IOutputWriter output;
@@ -31,8 +31,9 @@ namespace HmOpenAIChatGpt
 
         string model = "";
         int iMaxTokens;
+        static int iRemoveAutoMessageList;
 
-        public OpenAIChatMain(string key, string model, int maxtokens, IOutputWriter output)
+        public OpenAIChatMain(string key, string model, int maxtokens, IOutputWriter output, int remove_auto_messagelist)
         {
             // 出力対象のDI用
             this.output = output;
@@ -44,6 +45,7 @@ namespace HmOpenAIChatGpt
                 // output.WriteLine(this.model);
             }
             this.iMaxTokens = maxtokens;
+            iRemoveAutoMessageList = remove_auto_messagelist;
 
             // とりあえず代入。エラーならChatGPTの方が言ってくれる。
             if (key.Length > 0)
@@ -112,6 +114,12 @@ namespace HmOpenAIChatGpt
                 ChatMessage.FromSystem(ChatGPTStartSystemMessage)
             };
             messageList = list;
+
+            // 会話履歴の自動削除モードなら
+            if (iRemoveAutoMessageList > 0)
+            {
+                InitMessageListCancelToken();
+            }
         }
 
         // チャットのエンジンやオプション。過去のチャット内容なども渡す。
@@ -200,18 +208,13 @@ namespace HmOpenAIChatGpt
                 }
             }
 
-            // 今回の返答ををChatGPTの返答として記録しておく
-            messageList.Add(ChatMessage.FromAssistant(answer_sum));
+            AddAnswer(answer_sum);
 
             // 解答が完了したよ～というのを人にわかるように表示
             output.WriteLine(AssistanceAnswerCompleteMsg);
         }
 
-        // 質問内容はそのまま履歴に追加する
-        public void AddQuestion(string question)
-        {
-            messageList.Add(ChatMessage.FromUser(question));
-        }
+        // もっとも古いQandAを削除
     }
 }
 
