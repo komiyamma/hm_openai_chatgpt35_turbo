@@ -1,0 +1,10 @@
+G:\bbbb\HmChatGPT\HmChatGPT\obj\Debug\net6.0-windows\HmChatGPT.csproj.AssemblyReference.cache
+G:\bbbb\HmChatGPT\HmChatGPT\obj\Debug\net6.0-windows\HmChatGPT.GeneratedMSBuildEditorConfig.editorconfig
+G:\bbbb\HmChatGPT\HmChatGPT\obj\Debug\net6.0-windows\HmChatGPT.AssemblyInfoInputs.cache
+G:\bbbb\HmChatGPT\HmChatGPT\obj\Debug\net6.0-windows\HmChatGPT.AssemblyInfo.cs
+G:\bbbb\HmChatGPT\HmChatGPT\obj\Debug\net6.0-windows\HmChatGPT.csproj.CoreCompileInputs.cache
+G:\bbbb\HmChatGPT\HmChatGPT\bin\Debug\net6.0-windows\HmChatGPT.deps.json
+G:\bbbb\HmChatGPT\HmChatGPT\bin\Debug\net6.0-windows\HmChatGPT.dll
+G:\bbbb\HmChatGPT\HmChatGPT\obj\Debug\net6.0-windows\HmChatGPT.dll
+G:\bbbb\HmChatGPT\HmChatGPT\obj\Debug\net6.0-windows\refint\HmChatGPT.dll
+G:\bbbb\HmChatGPT\HmChatGPT\obj\Debug\net6.0-windows\ref\HmChatGPT.dll

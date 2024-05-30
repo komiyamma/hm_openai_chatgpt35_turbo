@@ -1,0 +1,104 @@
+﻿/*--------------------------------------------
+ * HmChatGPT v1.0.7.5
+ * 
+ * Copyright (C) 2023-2024 Akitsugu Komiyama
+ * under the MIT License
+ * 
+ * (※秀丸エディタ v8.98以上)
+ --------------------------------------------*/
+
+// OPENAIのAPIのKEYの設定 
+SET_OPENAI_KEY:
+
+    $OPENAI_KEY = getenv("OPENAI_KEY");
+
+    if ($OPENAI_KEY == "") {
+        $OPENAI_KEY = ""; // 直接ここでAPIのKEYの文字列を指定しても良いですが、あまり推奨はしません。直書きする場合、このマクロを迂闊に配布して他者にAPIのキーが漏れないよう注意。
+    }
+
+// モデルの指定
+SET_MODEL:
+
+    $MODEL = "gpt-3.5-turbo"; // "gpt-4o"などの設定可能。しかしながら値段が10倍に跳ね上がるので注意。
+                              // "gpt-4-turbo" は、「値段が高いだけで低性能で利用価値なし」なので注意
+
+
+SET_MAXTOKENS:
+
+    #MAXTOKENS = 4000;    // この数値は概ね 使用対象のmodelの最大トークンの半分程度を使用するのが望ましい。
+                          // 「gpt-3.5-turbo なら 2000」「gpt-4o なら 4000」が目安
+
+
+SET_TOPMOST_TYPE:
+
+    #TOPMOST = 0; // 最初の起動時に「常に手前」にチェックが付くかどうか。1:チェックが付く。0:チェックは付かない。
+
+
+// 選択テキストの保持 ($HmSelectedTextという変数名を変更しないこと)
+SAVE_SELECTED_TEXT:
+
+    if (selecting) {
+        $HmSelectedText = gettext2( seltopcolumn, seltoplineno, selendcolumn, selendlineno, 1 );
+    }
+
+
+// 他の秀丸プロセスでHmOpenAIGPTが使われているかどうか
+CHECK_OPENAI_USED_HIDEMARUHANDLE:
+
+    // HmOpenAIGPT のウィンドウが無い
+    if (! findwindow("*-- HmChatGPT --*")) {
+
+        // 普段通りの処理を実行
+        call SHOW_OPENAI_FORM;
+
+    // HmOpenAIGPT のウィンドウが既にある
+    } else {
+
+        #JUDGE_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT.comhost.dll", "{9818F69E-A37D-4A03-BCA1-C4C172366473}");
+
+        #OpeningFormHidemaruHandle = member(#JUDGE_OBJ, "GetFormHideamruHandle");
+
+        // HmOpenAIGPTを使っている有効な秀丸ハンドルがある
+        if (#OpeningFormHidemaruHandle > 0 ) {
+
+            #CurrentHidemaruHandle = hidemaruhandle(0);
+
+            // 一旦対象のウィンドウをアクティブにして...
+            if (#CurrentHidemaruHandle != #OpeningFormHidemaruHandle) {
+                setactivehidemaru #OpeningFormHidemaruHandle;
+            }
+
+            call SHOW_OPENAI_FORM;
+
+            // 元のウィンドウに戻す。
+            if (#CurrentHidemaruHandle != #OpeningFormHidemaruHandle) {
+                setactivehidemaru #CurrentHidemaruHandle;
+            }
+
+        } else {
+
+            // 普段通りの処理を実行
+            call SHOW_OPENAI_FORM;
+
+        }
+
+    }
+
+    endmacro;
+
+
+// フォームの表示
+SHOW_OPENAI_FORM:
+
+    #CHATGPT_OBJ = createobject( currentmacrodirectory + @"\HmChatGPT.comhost.dll", "{BCCBE82C-56E1-4056-AE7C-3C4F62806732}");
+
+    // 秀丸の該当プロセスが終了するまでオブジェクトは維持
+    keepobject #CHATGPT_OBJ, 1;
+
+    // 秀丸プロセスが閉じる際に(エラーで閉じる際も含めて)、このメソッドを実行する
+    setcomdetachmethod #CHATGPT_OBJ, "DestroyForm";
+
+    // フォームの表示。
+    #_ = member(#CHATGPT_OBJ, "CreateForm", $OPENAI_KEY, $MODEL, #MAXTOKENS);
+
+    return;
