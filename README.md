@@ -1,6 +1,6 @@
-# HmChatGPT35Turbo
+# HmChatGPT
 
-![HmChatGPT35Turbo v1.0.7](https://img.shields.io/badge/HmChatGPT35Turbo-v1.0.7-6479ff.svg)
+![HmChatGPT v1.0.7](https://img.shields.io/badge/HmChatGPT-v1.0.7-6479ff.svg)
 ![gpt 3.5 turbo](https://img.shields.io/badge/gpt-3.5_turbo-6479ff.svg)
 ![gpt 4o](https://img.shields.io/badge/gpt-4o-6479ff.svg)
 ![gpt 4 turbo](https://img.shields.io/badge/gpt-4_turbo-6479ff.svg)
