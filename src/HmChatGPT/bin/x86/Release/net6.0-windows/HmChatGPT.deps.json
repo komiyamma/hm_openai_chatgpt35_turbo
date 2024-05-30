@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "HmChatGPT/1.0.7.8": {
+      "HmChatGPT/1.0.7.9": {
         "dependencies": {
           "Betalgo.OpenAI": "8.2.2",
           "HmNetCOM": "2.0.7.9"
@@ -154,7 +154,7 @@
     }
   },
   "libraries": {
-    "HmChatGPT/1.0.7.8": {
+    "HmChatGPT/1.0.7.9": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
