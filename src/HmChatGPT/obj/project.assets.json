@@ -595,7 +595,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.7.9",
+    "version": "1.0.8.2",
     "restore": {
       "projectUniqueName": "G:\\repogitory\\hm_openai_chatgpt35_turbo\\src\\HmChatGPT\\HmChatGPT.csproj",
       "projectName": "HmChatGPT",

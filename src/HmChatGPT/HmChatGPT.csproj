@@ -10,9 +10,9 @@
     <BaseOutputPath>bin\$(PlatformTarget)</BaseOutputPath>
     <Authors>Akitsugu Komiyama</Authors>
     <Copyright>$(Authors)</Copyright>
-    <AssemblyVersion>1.0.7.9</AssemblyVersion>
-    <FileVersion>1.0.7.9</FileVersion>
-    <Version>1.0.7.9</Version>
+    <AssemblyVersion>1.0.8.2</AssemblyVersion>
+    <FileVersion>1.0.8.2</FileVersion>
+    <Version>1.0.8.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Platform)'=='x86'">
