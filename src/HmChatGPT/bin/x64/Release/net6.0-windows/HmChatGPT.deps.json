@@ -8,22 +8,22 @@
     ".NETCoreApp,Version=v6.0": {
       "HmChatGPT/1.0.8.2": {
         "dependencies": {
-          "Betalgo.OpenAI": "8.2.2",
+          "Betalgo.OpenAI": "8.6.0",
           "HmNetCOM": "2.0.7.9"
         },
         "runtime": {
           "HmChatGPT.dll": {}
         }
       },
-      "Betalgo.OpenAI/8.2.2": {
+      "Betalgo.OpenAI/8.6.0": {
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/OpenAI.dll": {
-            "assemblyVersion": "8.2.2.0",
-            "fileVersion": "8.2.2.0"
+            "assemblyVersion": "8.6.0.0",
+            "fileVersion": "8.6.0.0"
           }
         }
       },
@@ -159,12 +159,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Betalgo.OpenAI/8.2.2": {
+    "Betalgo.OpenAI/8.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7qyM/H8UO0DTFWDX779JRr+sVGn8jyb5/QQEbSPys7uNr5lWvtWic7d4G3JoruKQ1/QTqZBhDDeDZ93nWSYxpQ==",
-      "path": "betalgo.openai/8.2.2",
-      "hashPath": "betalgo.openai.8.2.2.nupkg.sha512"
+      "sha512": "sha512-fNPf4rN+Sixkk0OqJ6SO1eQ+EgDCC0y40yn3RSzqogt5jvsmVxmdkpXvRplK9JVjilHimtQnDS+svQV8OXwHeA==",
+      "path": "betalgo.openai/8.6.0",
+      "hashPath": "betalgo.openai.8.6.0.nupkg.sha512"
     },
     "HmNetCOM/2.0.7.9": {
       "type": "package",

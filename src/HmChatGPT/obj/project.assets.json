@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "Betalgo.OpenAI/8.2.2": {
+      "Betalgo.OpenAI/8.6.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "6.0.0",
@@ -250,16 +250,16 @@
     }
   },
   "libraries": {
-    "Betalgo.OpenAI/8.2.2": {
-      "sha512": "7qyM/H8UO0DTFWDX779JRr+sVGn8jyb5/QQEbSPys7uNr5lWvtWic7d4G3JoruKQ1/QTqZBhDDeDZ93nWSYxpQ==",
+    "Betalgo.OpenAI/8.6.0": {
+      "sha512": "fNPf4rN+Sixkk0OqJ6SO1eQ+EgDCC0y40yn3RSzqogt5jvsmVxmdkpXvRplK9JVjilHimtQnDS+svQV8OXwHeA==",
       "type": "package",
-      "path": "betalgo.openai/8.2.2",
+      "path": "betalgo.openai/8.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "OpenAI-Betalgo.png",
+        "Betalgo-Ranul-OpenAI-icon.png",
         "Readme.md",
-        "betalgo.openai.8.2.2.nupkg.sha512",
+        "betalgo.openai.8.6.0.nupkg.sha512",
         "betalgo.openai.nuspec",
         "lib/net6.0/OpenAI.dll",
         "lib/net6.0/OpenAI.xml",
@@ -586,7 +586,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "Betalgo.OpenAI >= 8.2.2",
+      "Betalgo.OpenAI >= 8.6.0",
       "HmNetCOM >= 2.0.7.9"
     ]
   },
@@ -616,6 +616,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -641,7 +642,7 @@
         "dependencies": {
           "Betalgo.OpenAI": {
             "target": "Package",
-            "version": "[8.2.2, )"
+            "version": "[8.6.0, )"
           },
           "HmNetCOM": {
             "target": "Package",
@@ -667,7 +668,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }
