@@ -26,7 +26,7 @@ SET_MODEL:
 SET_MAXTOKENS:
 
     #MAXTOKENS = 4000;    // この数値は概ね 使用対象のmodelの最大トークンの半分程度を使用するのが望ましい。
-                          // 「gpt-3.5-turbo なら 2000」「gpt-4o なら 4000」が目安
+                          // 「gpt-4o-mini なら 8000」「gpt-4o なら 4000」が目安
 
 
 SET_TOPMOST_TYPE:
